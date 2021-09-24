@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">WareHouse</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <string name="topproduct">Top Product </string>
+    <string name="originalPrice">₹59.00</string>
+    <string name="salesPrice">₹55.00</string>
+    <string name="myorderPrice">₹ 68.00</string>
+    <string name="myordersavePrice">Saved ₹0.8</string>
+
+    <string name="HomePage">Home Page</string>
+    <string name="Supplier">Supplier</string>
+    <string name="Orders">Orders</string>
+    <string name="ProductListing">Product Listing</string>
+    <string name="PaymentHistory">Payment History</string>
+    <string name="Chat">Chat</string>
+    <string name="LogOut">Log Out</string>
+    <string name="MyAccount">My Account</string>
+    <string name="Dashboard">Dashboard</string>
+
+
+</resources>

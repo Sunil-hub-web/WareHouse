@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="337dp"
+            android:layout_height="143dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="40dp"
+            android:src="@drawable/rectangle9"></ImageView>
+
+        <TextView
+            android:id="@+id/tt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/img"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="10dp"
+            android:text="Xyz Farm house"
+            android:textColor="@color/black"
+            android:textSize="25dp"
+            android:textStyle="bold"></TextView>
+        <TextView
+            android:id="@+id/tt3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="45dp"
+            android:text="4.2"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:layout_below="@id/img"
+            android:layout_alignParentRight="true"></TextView>
+        <TextView
+            android:id="@+id/tt4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="35dp"
+            android:text="Location : kolkata"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:layout_below="@id/tt"></TextView>
+
+        <TextView
+            android:id="@+id/tt5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="35dp"
+            android:text="Supplier info"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:layout_below="@id/tt4"></TextView>
+
+        <TextView
+            android:id="@+id/tt6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="30dp"
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum quis venenatis rhoncus libero posuere. Quis nulla aliquam tempus, ac fermentum. Ultricies scelerisque scelerisque lectus faucibus. Purus blandit orci, proin libero dolor. Nunc semper mauris ultricies."
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:layout_below="@id/tt5"></TextView>
+
+        <TextView
+            android:id="@+id/tt8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="35dp"
+            android:text="Our Product"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:layout_below="@id/tt6"></TextView>
+
+        <RelativeLayout
+            android:id="@+id/r9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tt8"
+            android:layout_marginTop="15dp">
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RelativeLayout
+                        android:id="@+id/rr1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp">
+
+                        <ImageView
+                            android:id="@+id/img1"
+                            android:layout_width="130dp"
+                            android:layout_height="130dp"
+                            android:src="@drawable/rectangle80"></ImageView>
+                        <TextView
+                            android:id="@+id/t2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/img1"
+                            android:layout_marginTop="10dp"
+                            android:text="  Tomato | "
+                            android:textColor="@color/black"
+                            android:textSize="18dp"
+                            android:textStyle="bold"></TextView>
+                        <TextView
+                            android:id="@+id/tt2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="Farm"
+                            android:textColor="@color/black"
+                            android:textSize="18dp"
+                            android:layout_below="@id/img1"
+                            android:layout_toRightOf="@id/t2"
+                            android:textStyle="bold"></TextView>
+
+                        <RelativeLayout
+                            android:id="@+id/r3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/t2"
+                            android:layout_marginTop="5dp">
+                            <TextView
+                                android:id="@+id/tt1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="10dp"
+                                android:text="   ₹68.00"
+                                android:textColor="@color/black"
+                                android:textSize="15dp"
+                                android:textStyle="bold"></TextView>
+
+                        </RelativeLayout>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rr2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toRightOf="@id/rr1">
+
+                        <ImageView
+                            android:id="@+id/img2"
+                            android:layout_width="130dp"
+                            android:layout_height="130dp"
+                            android:src="@drawable/rectangle81"></ImageView>
+                        <TextView
+                            android:id="@+id/t3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/img2"
+                            android:layout_marginTop="10dp"
+                            android:text="  Tomato | "
+                            android:textColor="@color/black"
+                            android:textSize="18dp"
+                            android:textStyle="bold"></TextView>
+                        <TextView
+                            android:id="@+id/t4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="Farm"
+                            android:textColor="@color/black"
+                            android:textSize="18dp"
+                            android:layout_below="@id/img2"
+                            android:layout_toRightOf="@id/t3"
+                            android:textStyle="bold"></TextView>
+
+                        <RelativeLayout
+                            android:id="@+id/r5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/t4"
+                            android:layout_marginTop="5dp">
+                            <TextView
+                                android:id="@+id/t6"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="10dp"
+                                android:text="   ₹68.00"
+                                android:textColor="@color/black"
+                                android:textSize="15dp"
+                                android:textStyle="bold"></TextView>
+
+                        </RelativeLayout>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toRightOf="@id/rr2">
+
+                        <ImageView
+                            android:id="@+id/img3"
+                            android:layout_width="130dp"
+                            android:layout_height="130dp"
+                            android:src="@drawable/rectangle82"></ImageView>
+                        <TextView
+                            android:id="@+id/t5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/img3"
+                            android:layout_marginTop="10dp"
+                            android:text="  Tomato | "
+                            android:textColor="@color/black"
+                            android:textSize="18dp"
+                            android:textStyle="bold"></TextView>
+                        <TextView
+                            android:id="@+id/t7"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="Farm"
+                            android:textColor="@color/black"
+                            android:textSize="18dp"
+                            android:layout_below="@id/img3"
+                            android:layout_toRightOf="@id/t5"
+                            android:textStyle="bold"></TextView>
+
+                        <RelativeLayout
+                            android:id="@+id/r6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/t7"
+                            android:layout_marginTop="5dp">
+                            <TextView
+                                android:id="@+id/tt7"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="10dp"
+                                android:text="   ₹68.00"
+                                android:textColor="@color/black"
+                                android:textSize="15dp"
+                                android:textStyle="bold"></TextView>
+
+                        </RelativeLayout>
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+            </HorizontalScrollView>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+    <Button
+        android:id="@+id/click"
+        android:layout_width="175dp"
+        android:layout_height="44dp"
+        android:background="@drawable/button_back"
+        android:text="Back to purchase"
+        android:textColor="@color/white"
+        android:layout_gravity="center_horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="18dp"></Button>
+
+
+
+</RelativeLayout>

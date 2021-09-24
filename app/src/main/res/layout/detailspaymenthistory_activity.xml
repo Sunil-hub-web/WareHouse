@@ -1,0 +1,594 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/r1"
+        android:layout_width="match_parent"
+        android:layout_height="86dp"
+        android:background="#FFFFFF"
+        android:layout_marginTop="25dp">
+
+        <TextView
+            android:id="@+id/t2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:text="Total Wallet Balance"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:textStyle="bold"></TextView>
+
+        <Button
+            android:id="@+id/addmoney"
+            android:layout_width="@dimen/detailsPayment_addmoney_button_width"
+            android:layout_height="@dimen/detailsPayment_addmoney_button_height"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/button_back"
+            android:text="Add Money"
+            android:textColor="@color/white"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            android:layout_marginRight="10dp"
+            android:layout_centerInParent="true"></Button>
+
+        <TextView
+            android:id="@+id/t3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_below="@id/t2"
+            android:text="₹ 50,00.00"
+            android:textColor="@color/black"
+            android:textSize="30dp"
+            android:textStyle="bold"></TextView>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/t4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="15dp"
+        android:text="My payment History"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        android:layout_below="@+id/r1"
+        android:textStyle="bold"></TextView>
+
+    <TextView
+        android:id="@+id/t12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="15dp"
+        android:text="Today"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        android:layout_below="@+id/r1"
+        android:textStyle="bold"
+        android:layout_alignParentRight="true"></TextView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_above="@+id/click"
+        android:layout_below="@+id/t12">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:overScrollMode="ifContentScrolls">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/detailsPayment_card_height"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="15dp"
+                    android:background="#FFFFFF"
+                    android:id="@+id/r2">
+
+                    <TextView
+                        android:id="@+id/t5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="10dp"
+                        android:text="12-05-2021"
+                        android:textColor="@color/black"
+                        android:textSize="15dp"
+                        android:textStyle="bold"></TextView>
+                    <TextView
+                        android:id="@+id/t6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="5dp"
+                        android:text="Purchased products"
+                        android:textColor="@color/black"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        android:layout_below="@id/t5"></TextView>
+
+                    <TextView
+                        android:id="@+id/t7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:text="₹ 499.00"
+                        android:textColor="@color/black"
+                        android:textSize="18dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_below="@id/t6"></TextView>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="15dp">
+                        <TextView
+                            android:id="@+id/tt4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toRightOf="@id/img"
+                            android:layout_below="@id/tt"
+                            android:text="On"
+                            android:layout_marginLeft="15dp"
+                            android:textColor="#0DB866"
+                            android:textSize="15dp"
+                            android:textStyle="bold"></TextView>
+                        <TextView
+                            android:id="@+id/tt5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toRightOf="@id/img"
+                            android:layout_below="@id/tt"
+                            android:text="Delivery"
+                            android:layout_marginLeft="13dp"
+                            android:textColor="#0DB866"
+                            android:textSize="15dp"></TextView>
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/payment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="#FFFFFF"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp">
+
+                    <TextView
+                        android:id="@+id/t8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="15dp"
+                        android:text="Product order"
+                        android:textColor="@color/black"
+                        android:textSize="15dp"
+                        android:layout_below="@+id/r1"></TextView>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp">
+
+                        <TextView
+                            android:id="@+id/tt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:text="Tomato | "
+                            android:textColor="@color/black"
+                            android:textSize="18dp"
+                            android:textStyle="bold"></TextView>
+
+                        <TextView
+                            android:id="@+id/tt2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2kg"
+                            android:textColor="@color/black"
+                            android:textSize="18dp"
+                            android:layout_toRightOf="@id/tt"
+                            android:textStyle="bold"></TextView>
+
+                        <TextView
+                            android:id="@+id/tt3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="45dp"
+                            android:text="₹299.00"
+                            android:textColor="@color/black"
+                            android:textSize="18dp"
+                            android:layout_alignParentRight="true"
+                            android:textStyle="bold"></TextView>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp">
+
+                        <TextView
+                            android:id="@+id/tt1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:text="Carrot |"
+                            android:textColor="@color/black"
+                            android:textSize="18dp"
+                            android:textStyle="bold"></TextView>
+
+                        <TextView
+                            android:id="@+id/tt6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" 5kg "
+                            android:textColor="@color/black"
+                            android:textSize="18dp"
+                            android:layout_toRightOf="@id/tt1"
+                            android:textStyle="bold"></TextView>
+
+                        <TextView
+                            android:id="@+id/tt7"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="45dp"
+                            android:text="₹299.00"
+                            android:textColor="@color/black"
+                            android:textSize="18dp"
+                            android:layout_alignParentRight="true"
+                            android:textStyle="bold"></TextView>
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp">
+
+                        <TextView
+                            android:id="@+id/tt8"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:text="GST"
+                            android:textColor="@color/black"
+                            android:textSize="18dp"
+                            android:textStyle="bold"></TextView>
+
+                        <TextView
+                            android:id="@+id/tt10"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="45dp"
+                            android:text="₹ 59.00"
+                            android:textColor="@color/black"
+                            android:textSize="18dp"
+                            android:textStyle="bold"></TextView>
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp">
+
+                        <TextView
+                            android:id="@+id/tt11"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:text="Total Cost"
+                            android:textColor="@color/black"
+                            android:textSize="18dp"
+                            android:textStyle="bold"></TextView>
+
+                        <TextView
+                            android:id="@+id/tt13"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="45dp"
+                            android:text="₹ 559.00"
+                            android:textColor="@color/black"
+                            android:textSize="18dp"
+                            android:layout_alignParentRight="true"
+                            android:textStyle="bold"></TextView>
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/t18"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="25dp"
+                        android:text="Delivery Address"
+                        android:textColor="@color/black"
+                        android:textSize="15dp"
+                        android:layout_below="@+id/r1"></TextView>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp">
+
+                        <TextView
+                            android:id="@+id/address"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:text="Bangalor, Karnataka 560068"
+                            android:textColor="@color/black"
+                            android:textSize="15dp"
+                            android:textStyle="bold"></TextView>
+
+                        <TextView
+                            android:id="@+id/changeaddress"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="15dp"
+                            android:text="Change Address"
+                            android:textColor="@color/black"
+                            android:textSize="15dp"
+                            android:layout_alignParentRight="true"></TextView>
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:id="@+id/r3"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/detailsPayment_card_height"
+                    android:layout_below="@+id/r2"
+                    android:layout_margin="15dp"
+                    android:background="#FFFFFF">
+
+                    <TextView
+                        android:id="@+id/t20"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="10dp"
+                        android:text="12-05-2021"
+                        android:textColor="@color/black"
+                        android:textSize="15dp"
+                        android:textStyle="bold"></TextView>
+                    <TextView
+                        android:id="@+id/t9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="5dp"
+                        android:text="Purchased products"
+                        android:textColor="@color/black"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        android:layout_below="@id/t20"></TextView>
+
+                    <TextView
+                        android:id="@+id/t10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:text="₹ 499.00"
+                        android:textColor="@color/black"
+                        android:textSize="18dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_below="@id/t9"></TextView>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="15dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toRightOf="@id/img"
+                            android:layout_below="@id/tt"
+                            android:text=""
+                            android:layout_marginLeft="15dp"
+                            android:textColor="#0DB866"
+                            android:textSize="15dp"
+                            android:textStyle="bold"></TextView>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toRightOf="@id/img"
+                            android:layout_below="@id/tt1"
+                            android:text="Delivered"
+                            android:layout_marginLeft="13dp"
+                            android:textColor="#0A22A1"
+                            android:textSize="15dp"
+                            android:textStyle="bold"></TextView>
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/r4"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/detailsPayment_card_height"
+                    android:layout_below="@+id/r3"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:background="#FFFFFF">
+
+                    <TextView
+                        android:id="@+id/t15"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="10dp"
+                        android:text="12-05-2021"
+                        android:textColor="@color/black"
+                        android:textSize="15dp"
+                        android:textStyle="bold"></TextView>
+                    <TextView
+                        android:id="@+id/t16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="5dp"
+                        android:text="Purchased products"
+                        android:textColor="@color/black"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        android:layout_below="@id/t15"></TextView>
+
+                    <TextView
+                        android:id="@+id/t17"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:text="₹ 499.00"
+                        android:textColor="@color/black"
+                        android:textSize="18dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_below="@id/t16"></TextView>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="15dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toRightOf="@id/img"
+                            android:layout_below="@id/tt"
+                            android:text=""
+                            android:layout_marginLeft="15dp"
+                            android:textColor="#0DB866"
+                            android:textSize="15dp"
+                            android:textStyle="bold"></TextView>
+                        <TextView
+                            android:id="@+id/tt9"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toRightOf="@id/img"
+                            android:layout_below="@id/tt8"
+                            android:text="Delivered"
+                            android:layout_marginLeft="13dp"
+                            android:textColor="#0A22A1"
+                            android:textSize="15dp"
+                            android:textStyle="bold"></TextView>
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/detailsPayment_card_height"
+                    android:layout_below="@+id/r4"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:background="#FFFFFF">
+
+                    <TextView
+                        android:id="@+id/t11"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="10dp"
+                        android:text="12-05-2021"
+                        android:textColor="@color/black"
+                        android:textSize="15dp"
+                        android:textStyle="bold"></TextView>
+                    <TextView
+                        android:id="@+id/t13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="5dp"
+                        android:text="Purchased products"
+                        android:textColor="@color/black"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        android:layout_below="@id/t11"></TextView>
+
+                    <TextView
+                        android:id="@+id/t14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:text="₹ 499.00"
+                        android:textColor="@color/black"
+                        android:textSize="18dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_below="@id/t13"></TextView>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="15dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toRightOf="@id/img"
+                            android:layout_below="@id/tt"
+                            android:text=""
+                            android:layout_marginLeft="15dp"
+                            android:textColor="#0DB866"
+                            android:textSize="15dp"
+                            android:textStyle="bold"></TextView>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toRightOf="@id/img"
+                            android:layout_below="@id/tt6"
+                            android:text="Delivered"
+                            android:layout_marginLeft="13dp"
+                            android:textColor="#0A22A1"
+                            android:textSize="15dp"
+                            android:textStyle="bold"></TextView>
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/click"
+        android:layout_width="@dimen/detailsPayment_button_width"
+        android:layout_height="@dimen/detailsPayment_button_height"
+        android:background="@drawable/button_back"
+        android:text="Manage my transaction"
+        android:textColor="@color/white"
+        android:layout_gravity="center_horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="10dp"
+        ></Button>
+
+</RelativeLayout>

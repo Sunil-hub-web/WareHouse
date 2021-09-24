@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/rr1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp">
+
+                <RelativeLayout
+                    android:id="@+id/clicl_product"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp">
+
+                    <ImageView
+                        android:id="@+id/product_image"
+                        android:layout_width="@dimen/home_image_width"
+                        android:layout_height="@dimen/home_image_height"
+                        android:src="@drawable/rectangle49"></ImageView>
+
+                    <TextView
+                        android:id="@+id/topProduct"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/product_image"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/topproduct"
+                        android:textColor="@color/black"
+                        android:textSize="18dp"
+                        android:textStyle="bold"></TextView>
+
+                    <TextView
+                        android:id="@+id/price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:text="@string/originalPrice"
+                        android:textColor="@color/black"
+                        android:textSize="15dp"
+                        android:layout_below="@id/topProduct"></TextView>
+
+                    <TextView
+                        android:id="@+id/salesPrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/price"
+                        android:text="@string/salesPrice"
+                        android:layout_below="@id/topProduct"
+                        android:textColor="#0A22A1"
+                        android:textSize="15dp"></TextView>
+                </RelativeLayout>
+
+                <Button
+                    android:id="@+id/addtocart"
+                    android:layout_width="@dimen/home_butt_width"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/clicl_product"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/button_back"
+                    android:text="Add to cart"
+                    android:textColor="@color/white"></Button>
+
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+

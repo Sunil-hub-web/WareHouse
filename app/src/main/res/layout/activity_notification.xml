@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/mydrwaer"
+    android:background="@drawable/chatbot_back"
+    android:scrollbars="none">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FAFAFA"
+        android:layout_marginTop="30dp">
+
+        <RelativeLayout
+            android:id="@+id/r4"
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:layout_marginTop="25dp">
+
+            <ImageView
+                android:id="@+id/img1"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/group"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"></ImageView>
+            <TextView
+                android:id="@+id/t4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="25% Off Vegi Order"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@+id/img1"
+                android:layout_marginLeft="15dp"
+                android:textStyle="bold"></TextView>
+
+            <TextView
+                android:id="@+id/t5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Get offer will expire in 23 days "
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@+id/img1"
+                android:layout_marginLeft="15dp"
+                android:layout_below="@+id/t4"></TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="now"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginRight="10dp"
+                android:layout_alignParentRight="true"
+                ></TextView>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/r5"
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:layout_marginTop="25dp"
+            android:layout_below="@id/r4">
+
+            <ImageView
+                android:id="@+id/img2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/group"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"></ImageView>
+            <TextView
+                android:id="@+id/t1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="50% Off Vegi Order"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@+id/img2"
+                android:layout_marginLeft="15dp"
+                android:textStyle="bold"></TextView>
+
+            <TextView
+                android:id="@+id/t2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="50% Off Vegi Order "
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@+id/img2"
+                android:layout_marginLeft="15dp"
+                android:layout_below="@+id/t1"></TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="now"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginRight="10dp"
+                android:layout_alignParentRight="true"
+                ></TextView>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/r6"
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:layout_marginTop="25dp"
+            android:layout_below="@id/r5">
+
+            <LinearLayout
+                android:id="@+id/l2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerVertical="true"
+                android:orientation="horizontal"
+                android:background="@drawable/rectangle_44"
+                android:layout_marginLeft="20dp">
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@drawable/arrowupright"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"></ImageView>
+            </LinearLayout>
+            <TextView
+                android:id="@+id/t3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="50% Off Vegi Order"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@+id/l2"
+                android:layout_marginLeft="15dp"
+                android:textStyle="bold"></TextView>
+
+            <TextView
+                android:id="@+id/t6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="50% Off Vegi Order "
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@+id/l2"
+                android:layout_marginLeft="15dp"
+                android:layout_below="@+id/t3"></TextView>
+
+            <TextView
+                android:id="@+id/tt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="₹500.00"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:layout_marginRight="10dp"
+                android:layout_alignParentRight="true"
+                ></TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12 - Jun"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:layout_marginRight="10dp"
+                android:layout_below="@+id/tt"
+                android:layout_marginBottom="5dp"
+                android:layout_alignParentRight="true"
+                ></TextView>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/r7"
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:layout_marginTop="25dp"
+            android:layout_below="@id/r6">
+
+            <LinearLayout
+                android:id="@+id/l3"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerVertical="true"
+                android:orientation="horizontal"
+                android:background="@drawable/rectangle_44"
+                android:layout_marginLeft="20dp">
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@drawable/arrowupright"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"></ImageView>
+            </LinearLayout>
+            <TextView
+                android:id="@+id/t7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="50% Off Vegi Order"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@+id/l3"
+                android:layout_marginLeft="15dp"
+                android:textStyle="bold"></TextView>
+
+            <TextView
+                android:id="@+id/t8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="50% Off Vegi Order "
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@+id/l3"
+                android:layout_marginLeft="15dp"
+                android:layout_below="@+id/t7"></TextView>
+
+            <TextView
+                android:id="@+id/tt1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="₹500.00"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:layout_marginRight="10dp"
+                android:layout_alignParentRight="true"
+                ></TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12 - Jun"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:layout_marginRight="10dp"
+                android:layout_below="@+id/tt1"
+                android:layout_marginBottom="5dp"
+                android:layout_alignParentRight="true"></TextView>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/r8"
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:layout_marginTop="25dp"
+            android:layout_below="@id/r7">
+
+            <LinearLayout
+                android:id="@+id/l4"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerVertical="true"
+                android:orientation="horizontal"
+                android:background="@drawable/rectangle_46"
+                android:layout_marginLeft="20dp">
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@drawable/arrowdown"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"></ImageView>
+            </LinearLayout>
+            <TextView
+                android:id="@+id/t9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cashback Recieved"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@+id/l4"
+                android:layout_marginLeft="15dp"
+                android:textStyle="bold"></TextView>
+
+            <TextView
+                android:id="@+id/t10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="20% Cash back rec on order"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@+id/l4"
+                android:layout_marginLeft="15dp"
+                android:layout_below="@+id/t9"></TextView>
+
+            <TextView
+                android:id="@+id/tt2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="₹500.00"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:layout_marginRight="10dp"
+                android:layout_alignParentRight="true"
+                ></TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12 - Jun"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:layout_marginRight="10dp"
+                android:layout_below="@+id/tt2"
+                android:layout_marginBottom="5dp"
+                android:layout_alignParentRight="true"
+                ></TextView>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+
+
+</ScrollView>

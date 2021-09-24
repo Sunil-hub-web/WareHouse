@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/content"
+        android:layout_above="@id/add">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/img"
+                    android:layout_width="337dp"
+                    android:layout_height="143dp"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginTop="40dp"
+                    android:src="@drawable/rectangle79"></ImageView>
+
+                <TextView
+                    android:id="@+id/tt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/img"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Tomato | "
+                    android:textColor="@color/black"
+                    android:textSize="25dp"
+                    android:textStyle="bold"></TextView>
+
+                <TextView
+                    android:id="@+id/tt2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/img"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@id/tt"
+                    android:text="Farm"
+                    android:textColor="@color/black"
+                    android:textSize="25dp"
+                    android:textStyle="bold"></TextView>
+
+                <TextView
+                    android:id="@+id/tt3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/img"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="45dp"
+                    android:text="4.2"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
+                    android:textStyle="bold"></TextView>
+
+                <TextView
+                    android:id="@+id/tt4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tt2"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginTop="5dp"
+                    android:text="Supplier : XYZ Farm"
+                    android:textColor="@color/black"
+                    android:textSize="15dp"></TextView>
+
+                <TextView
+                    android:id="@+id/tt5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tt4"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginTop="25dp"
+                    android:text="Product Info"
+                    android:textColor="@color/black"
+                    android:textSize="15dp"></TextView>
+
+                <TextView
+                    android:id="@+id/tt6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tt5"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="15dp"
+                    android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum quis venenatis rhoncus libero posuere. Quis nulla aliquam tempus, ac fermentum. Ultricies scelerisque scelerisque lectus faucibus. Purus blandit orci, proin libero dolor. Nunc semper mauris ultricies."
+                    android:textColor="@color/black"
+                    android:textSize="15dp"></TextView>
+
+                <CheckBox
+                    android:id="@+id/ch1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tt6"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="20dp"
+                    android:button="@xml/custom_check_box"
+                    android:checked="false"
+                    android:paddingLeft="20dp"
+                    android:text="Fresh product directly from farm"></CheckBox>
+
+                <CheckBox
+                    android:id="@+id/ch2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/ch1"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    android:button="@xml/custom_check_box"
+                    android:checked="false"
+                    android:paddingLeft="20dp"
+                    android:text="Fresh product directly from farm"></CheckBox>
+
+                <CheckBox
+                    android:id="@+id/ch3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/ch2"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    android:button="@xml/custom_check_box"
+                    android:checked="false"
+                    android:paddingLeft="20dp"
+                    android:text="Fresh product directly from farm"></CheckBox>
+
+                <CheckBox
+                    android:id="@+id/ch4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/ch3"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    android:button="@xml/custom_check_box"
+                    android:checked="false"
+                    android:paddingLeft="20dp"
+                    android:text="Fresh product directly from farm"></CheckBox>
+
+                <CheckBox
+                    android:id="@+id/ch5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/ch4"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    android:button="@xml/custom_check_box"
+                    android:checked="false"
+                    android:paddingLeft="20dp"
+                    android:text="Fresh product directly from farm"></CheckBox>
+
+                <CheckBox
+                    android:id="@+id/ch6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/ch5"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    android:button="@xml/custom_check_box"
+                    android:checked="false"
+                    android:paddingLeft="20dp"
+                    android:text="Fresh product directly from farm"></CheckBox>
+
+                <CheckBox
+                    android:id="@+id/ch7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/ch6"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    android:button="@xml/custom_check_box"
+                    android:checked="false"
+                    android:paddingLeft="20dp"
+                    android:text="Fresh product directly from farm"></CheckBox>
+
+                <CheckBox
+                    android:id="@+id/ch8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/ch7"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    android:button="@xml/custom_check_box"
+                    android:checked="false"
+                    android:paddingLeft="20dp"
+                    android:text="Fresh product directly from farm"></CheckBox>
+
+                </RelativeLayout>
+
+        </ScrollView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:id="@+id/add"
+        android:layout_marginTop="10dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="30dp"
+            android:layout_marginBottom="10dp"
+            android:layout_below="@id/content">
+            <TextView
+                android:id="@+id/addqty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/content"
+                android:text="Add Qty"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:textStyle="bold"></TextView>
+
+            <LinearLayout
+                android:id="@+id/inc"
+                android:layout_width="130dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="3"
+                android:background="@drawable/serach_back">
+
+                <TextView
+                    android:id="@+id/t3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:text="+"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/t2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="01"
+                    android:textColor="@color/black"
+                    android:textSize="25sp" />
+
+                <TextView
+                    android:id="@+id/t1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="-"
+                    android:textColor="@color/black"
+                    android:textSize="35sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/rel1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/t"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="10dp"
+                android:text="₹ 68.00"
+                android:textColor="@color/black"
+                android:textSize="30dp"
+                android:textStyle="bold"></TextView>
+
+            <TextView
+                android:id="@+id/t4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@id/t"
+                android:text="Per kg"
+                android:textColor="@color/black"
+                android:textSize="10dp"
+                android:textStyle="bold"></TextView>
+
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="45dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/button_back"
+                android:text="Add to cart"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textStyle="bold"></Button>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>
+
+
+
+
+

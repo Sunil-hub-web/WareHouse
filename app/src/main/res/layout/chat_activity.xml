@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/chatbot_back">
+
+        <RelativeLayout
+            android:id="@+id/r1"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="#0A22A1"
+            android:layout_marginTop="10dp">
+            <ImageView
+                android:id="@+id/img1"
+                android:layout_width="@dimen/admin_image_width"
+                android:layout_height="@dimen/admin_image_height"
+                android:src="@drawable/ellipse7"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"></ImageView>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_toRightOf="@id/img1"
+                android:layout_marginLeft="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/t4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Admin"
+                    android:textColor="@color/white"
+                    android:textSize="20dp"
+                    android:layout_marginTop="5dp"
+                    android:textStyle="bold"></TextView>
+                <TextView
+                    android:id="@+id/t5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="online"
+                    android:textColor="@color/white"
+                    android:textSize="14dp"
+                    android:drawableLeft="@drawable/ellipse8"
+                    android:textStyle="bold"></TextView>
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/img2"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/group19"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"></ImageView>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="203dp"
+            android:layout_height="70dp"
+            android:layout_below="@id/r1"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/message_back">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/t1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hi, User"
+                    android:textColor="@color/black"
+                    android:textSize="13dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:textStyle="bold"></TextView>
+                <TextView
+                    android:id="@+id/t2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="How we can we help you ?"
+                    android:textColor="@color/black"
+                    android:textSize="13dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="15dp"
+                    android:textStyle="bold"></TextView>
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
+
+            <EditText
+                android:id="@+id/serach"
+                android:layout_width="261dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/serach_back"
+                android:padding="15dp"
+                android:text="Type Something"
+                android:layout_marginBottom="20dp"
+                android:layout_centerVertical="true"></EditText>
+
+            <Button
+                android:layout_width="@dimen/cart_button_width"
+                android:layout_height="@dimen/cart_button_height"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/button_back"
+                android:text="Checkout"
+                android:layout_marginBottom="30dp"
+                android:textColor="@color/white"
+                android:textAllCaps="false"
+                android:textStyle="bold"
+                android:layout_centerInParent="true"></Button>
+        </RelativeLayout>
+
+    </RelativeLayout>
