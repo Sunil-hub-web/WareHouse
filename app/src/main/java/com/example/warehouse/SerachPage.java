@@ -23,9 +23,6 @@ public class SerachPage extends Fragment {
 
         View view = inflater.inflate(R.layout.serach_activity,container,false);
 
-        MainActivity.fragmentManager.beginTransaction()
-                .replace(R.id.frame,new Home(),null).addToBackStack(null).commit();
-
         return view;
     }
 }
