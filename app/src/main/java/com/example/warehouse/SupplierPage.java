@@ -6,14 +6,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import org.jetbrains.annotations.NotNull;
 
-public class SupplierPage extends Fragment {
+public class SupplierPage extends Fragment  {
 
     Button btn_BachToPurchase;
 
@@ -32,14 +34,18 @@ public class SupplierPage extends Fragment {
             @Override
             public void onClick(View v) {
 
-                FragmentTransaction ft = getFragmentManager().beginTransaction();
+               /* FragmentTransaction ft = getFragmentManager().beginTransaction();
                 Home home = new Home();
                 ft.replace(R.id.frame,home);
-                ft.commit();
+                ft.addToBackStack(null);
+                ft.commit();*/
 
+                MainActivity.fragmentManager.beginTransaction()
+                        .replace(R.id.frame,new Home(),null).addToBackStack(null).commit();
 
             }
         });
         return view;
     }
+
 }

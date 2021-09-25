@@ -22,6 +22,7 @@ public class PaymentHistory extends Fragment {
                              @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.paymenthistory,container,false);
+
         return view;
     }
 }

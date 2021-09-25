@@ -9,8 +9,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,7 +32,6 @@ public class ProductDetailsAdapter extends RecyclerView.Adapter<ProductDetailsAd
     int[] image;
     //ArrayList<MostSoldProduct> arraysell = new ArrayList<MostSoldProduct>();
     AppCompatActivity activity;
-
     public ProductDetailsAdapter(Context context, int[] arraysell) {
 
         this.context = context;
@@ -65,9 +66,12 @@ public class ProductDetailsAdapter extends RecyclerView.Adapter<ProductDetailsAd
             @Override
             public void onClick(View view) {
 
-                activity = (AppCompatActivity) view.getContext();
+             holder.btn_addToCart1.setVisibility(View.INVISIBLE);
+             holder.linearLayout.setVisibility(View.VISIBLE);
+
+               /* activity = (AppCompatActivity) view.getContext();
                 CartActivity cart = new CartActivity();
-                activity.getSupportFragmentManager().beginTransaction().replace(R.id.frame,cart).addToBackStack(null).commit();
+                activity.getSupportFragmentManager().beginTransaction().replace(R.id.frame,cart).addToBackStack(null).commit();*/
 
             }
         });
@@ -84,6 +88,20 @@ public class ProductDetailsAdapter extends RecyclerView.Adapter<ProductDetailsAd
             }
         });
 
+        holder.t1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                holder.linearLayout(false);
+            }
+        });
+
+        holder.t3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                holder.linearLayout(true);
+            }
+        });
+
     }
 
     @Override
@@ -94,9 +112,11 @@ public class ProductDetailsAdapter extends RecyclerView.Adapter<ProductDetailsAd
     public class MyViewholder extends RecyclerView.ViewHolder {
 
         ImageView imageView1;
-        TextView price;
+        TextView price,t1, t2, t3;;
         Button btn_addToCart1;
         RelativeLayout relativeLayout;
+        LinearLayout linearLayout;
+
 
         public MyViewholder(@NonNull @NotNull View itemView) {
             super(itemView);
@@ -105,8 +125,27 @@ public class ProductDetailsAdapter extends RecyclerView.Adapter<ProductDetailsAd
             price = itemView.findViewById(R.id.price);
             btn_addToCart1 = itemView.findViewById(R.id.addtocart);
             relativeLayout = itemView.findViewById(R.id.clicl_product);
+            linearLayout = itemView.findViewById(R.id.inc);
+            t1 = itemView.findViewById(R.id.t1);
+            t2 = itemView.findViewById(R.id.t2);
+            t3 = itemView.findViewById(R.id.t3);
 
 
+        }
+
+        private void linearLayout(Boolean x){
+            int y = Integer.parseInt(t2.getText().toString());
+            if(x){
+                y++;
+                t2.setText(String.valueOf(y));
+            }else {
+                y--;
+                if(y <= 0){
+                    t2.setText("0");
+                }else {
+                    t2.setText(String.valueOf(y));
+                }
+            }
         }
     }
 }

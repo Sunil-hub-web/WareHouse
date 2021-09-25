@@ -11,7 +11,7 @@
             android:background="#0A22A1"
             android:layout_marginTop="10dp">
             <ImageView
-                android:id="@+id/img1"
+                android:id="@+id/adminImage"
                 android:layout_width="@dimen/admin_image_width"
                 android:layout_height="@dimen/admin_image_height"
                 android:src="@drawable/ellipse7"
@@ -21,12 +21,12 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_toRightOf="@id/img1"
+                android:layout_toRightOf="@id/adminImage"
                 android:layout_marginLeft="10dp"
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/t4"
+                    android:id="@+id/admin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Admin"
@@ -35,7 +35,7 @@
                     android:layout_marginTop="5dp"
                     android:textStyle="bold"></TextView>
                 <TextView
-                    android:id="@+id/t5"
+                    android:id="@+id/online"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="online"
@@ -102,7 +102,7 @@
             android:layout_marginRight="10dp">
 
             <EditText
-                android:id="@+id/serach"
+                android:id="@+id/message"
                 android:layout_width="@dimen/chat_typing_width"
                 android:layout_height="wrap_content"
                 android:background="@drawable/serach_back"

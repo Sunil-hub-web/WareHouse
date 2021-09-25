@@ -22,6 +22,7 @@ public class PaymentPage extends Fragment {
                              @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.payment_activity,container,false);
+
         return view;
     }
 }

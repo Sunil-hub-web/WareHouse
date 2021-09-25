@@ -36,10 +36,13 @@ public class MyOrderActivity extends Fragment {
             @Override
             public void onClick(View v) {
 
-                FragmentTransaction ft = getFragmentManager().beginTransaction();
+               /* FragmentTransaction ft = getFragmentManager().beginTransaction();
                 Home home = new Home();
                 ft.replace(R.id.frame,home);
-                ft.commit();
+                ft.commit();*/
+
+                MainActivity.fragmentManager.beginTransaction()
+                        .replace(R.id.frame,new Home(),null).addToBackStack(null).commit();
             }
         });
 

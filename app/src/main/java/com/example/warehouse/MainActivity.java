@@ -6,12 +6,15 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -31,23 +34,29 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private DrawerLayout mydrawer;
     private ActionBarDrawerToggle mytoggle;
     NavigationView navigationView;
-    TextView text_homePage,text_OrderPage,text_name,text_PaymentHistory,
-              text_Chart,text_ProductListing,text_Supplier;
-    ImageView image_Notification,image_Cart;
+    TextView text_homePage, text_OrderPage, text_name, text_PaymentHistory,
+            text_Chart, text_ProductListing, text_Supplier;
+    ImageView image_Notification, image_Cart;
     LayoutInflater inflater;
     Button btn_addToCart1;
     TextView textView;
+
+    private Boolean exit = false;
+
+    public static FragmentManager fragmentManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        fragmentManager = getSupportFragmentManager();
 
         ActionBar actionBar = getSupportActionBar();
 
         actionBar.setDisplayShowCustomEnabled(true);
         inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view1 = inflater.inflate(R.layout.home_home,null);
+        View view1 = inflater.inflate(R.layout.home_home, null);
         actionBar.setCustomView(view1);
 
         image_Notification = view1.findViewById(R.id.imagenotification);
@@ -78,23 +87,23 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         text_name.setText("Home Page");
         mydrawer.closeDrawer(GravityCompat.START);
-
+        image_Notification.setVisibility(View.VISIBLE);
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         Home home = new Home();
-        ft.replace(R.id.frame,home);
+        ft.replace(R.id.frame, home,"testID");
         ft.commit();
 
         text_homePage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                text_name.setText ("Home Page");
+                text_name.setText("Home Page");
                 mydrawer.closeDrawer(GravityCompat.START);
                 image_Notification.setVisibility(View.VISIBLE);
                 image_Cart.setVisibility(View.VISIBLE);
                 FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
                 Home home = new Home();
-                ft.replace(R.id.frame,home);
+                ft.replace(R.id.frame, home,"testID");
                 ft.commit();
 
             }
@@ -104,13 +113,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onClick(View view) {
 
-                text_name.setText ("Order");
+                text_name.setText("Order");
                 mydrawer.closeDrawer(GravityCompat.START);
                 image_Notification.setVisibility(View.VISIBLE);
                 image_Cart.setVisibility(View.VISIBLE);
                 FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
                 MyOrderActivity order = new MyOrderActivity();
-                ft.replace(R.id.frame,order);
+                ft.replace(R.id.frame, order);
                 ft.commit();
             }
         });
@@ -118,12 +127,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onClick(View view) {
 
-                text_name.setText ("Notification");
+                text_name.setText("Notification");
                 mydrawer.closeDrawer(GravityCompat.START);
 
                 FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
                 Notifaction notification = new Notifaction();
-                ft.replace(R.id.frame,notification);
+                ft.replace(R.id.frame, notification);
                 ft.commit();
 
                 image_Notification.setVisibility(View.INVISIBLE);
@@ -135,13 +144,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onClick(View view) {
 
-                text_name.setText ("Payment History");
+                text_name.setText("Payment History");
                 mydrawer.closeDrawer(GravityCompat.START);
                 image_Notification.setVisibility(View.VISIBLE);
                 image_Cart.setVisibility(View.VISIBLE);
                 FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
                 PaymentHistoryDetails payment = new PaymentHistoryDetails();
-                ft.replace(R.id.frame,payment);
+                ft.replace(R.id.frame, payment);
                 ft.commit();
 
             }
@@ -150,13 +159,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onClick(View view) {
 
-                text_name.setText ("Chat");
+                text_name.setText("Chat");
                 mydrawer.closeDrawer(GravityCompat.START);
                 image_Notification.setVisibility(View.VISIBLE);
                 image_Cart.setVisibility(View.VISIBLE);
-                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+
+                FragmentTransaction ft = fragmentManager.beginTransaction();
                 ChatBot chatBot = new ChatBot();
-                ft.replace(R.id.frame,chatBot);
+                ft.replace(R.id.frame, chatBot);
                 ft.commit();
 
             }
@@ -173,12 +183,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onClick(View view) {
 
-                text_name.setText ("Supplier");
+                text_name.setText("Supplier");
                 mydrawer.closeDrawer(GravityCompat.START);
 
                 FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
                 SupplierPage supplier = new SupplierPage();
-                ft.replace(R.id.frame,supplier);
+                ft.replace(R.id.frame, supplier);
                 ft.commit();
 
             }
@@ -189,11 +199,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             public void onClick(View v) {
 
 
-                text_name.setText ("Cart");
+                text_name.setText("Cart");
                 image_Cart.setVisibility(View.INVISIBLE);
                 FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
                 CartActivity cart = new CartActivity();
-                ft.replace(R.id.frame,cart);
+                ft.replace(R.id.frame, cart);
                 ft.commit();
 
             }
@@ -220,8 +230,38 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
 
+        Home test = (Home) getSupportFragmentManager().findFragmentByTag("testID");
 
+        if (test != null && test.isVisible()) {
 
+            if (exit) {
+                finish(); // finish activity
+            } else {
+                Toast.makeText(this, "Press Back again to Exit.",
+                        Toast.LENGTH_SHORT).show();
+                exit = true;
+                new Handler().postDelayed(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        // TODO Auto-generated method stub
+                        Intent a = new Intent(Intent.ACTION_MAIN);
+                        a.addCategory(Intent.CATEGORY_HOME);
+                        a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(a);
+                    }
+                }, 3 * 1000);
+            }
+        }
+        else {
+            text_name.setText("Home Page");
+            MainActivity.fragmentManager.beginTransaction()
+                    .replace(R.id.frame,new Home(),null).addToBackStack(null).commit();
+            //Whatever
+        }
+    }
 }
-
