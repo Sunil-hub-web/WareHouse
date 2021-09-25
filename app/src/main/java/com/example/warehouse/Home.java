@@ -69,6 +69,7 @@ public class Home extends Fragment {
             public void onClick(View v) {
 
                // text_name.setText("Serach");
+
                 FragmentTransaction ft1 = getFragmentManager().beginTransaction();
                 SerachPage search = new SerachPage();
                 ft1.replace(R.id.frame,search);
