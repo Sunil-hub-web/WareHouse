@@ -42,7 +42,11 @@
     <dimen name="cart_butt_width">151dp</dimen>
 
     <dimen name="home_butt_width">125dp</dimen>
+    <dimen name="chat_typing_width">261dp</dimen>
 
+
+    <dimen name="chat_messageBox_height">70dp</dimen>
+    <dimen name="chat_messageBox_width">203dp</dimen>
 
 
 </resources>

@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     NavigationView navigationView;
     TextView text_homePage,text_OrderPage,text_name,text_PaymentHistory,
               text_Chart,text_ProductListing,text_Supplier;
-    ImageView imageView;
+    ImageView image_Notification,image_Cart;
     LayoutInflater inflater;
     Button btn_addToCart1;
     TextView textView;
@@ -50,7 +50,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         View view1 = inflater.inflate(R.layout.home_home,null);
         actionBar.setCustomView(view1);
 
-        imageView = view1.findViewById(R.id.image);
+        image_Notification = view1.findViewById(R.id.imagenotification);
+        image_Cart = view1.findViewById(R.id.imagecart);
         text_name = view1.findViewById(R.id.name);
 
         mydrawer = (DrawerLayout) findViewById(R.id.mydrwaer);
@@ -89,7 +90,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                 text_name.setText ("Home Page");
                 mydrawer.closeDrawer(GravityCompat.START);
-                imageView.setVisibility(View.VISIBLE);
+                image_Notification.setVisibility(View.VISIBLE);
+                image_Cart.setVisibility(View.VISIBLE);
                 FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
                 Home home = new Home();
                 ft.replace(R.id.frame,home);
@@ -104,14 +106,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                 text_name.setText ("Order");
                 mydrawer.closeDrawer(GravityCompat.START);
-
+                image_Notification.setVisibility(View.VISIBLE);
+                image_Cart.setVisibility(View.VISIBLE);
                 FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
                 MyOrderActivity order = new MyOrderActivity();
                 ft.replace(R.id.frame,order);
                 ft.commit();
             }
         });
-        imageView.setOnClickListener(new View.OnClickListener() {
+        image_Notification.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -123,7 +126,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 ft.replace(R.id.frame,notification);
                 ft.commit();
 
-                imageView.setVisibility(View.INVISIBLE);
+                image_Notification.setVisibility(View.INVISIBLE);
 
             }
         });
@@ -134,7 +137,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                 text_name.setText ("Payment History");
                 mydrawer.closeDrawer(GravityCompat.START);
-
+                image_Notification.setVisibility(View.VISIBLE);
+                image_Cart.setVisibility(View.VISIBLE);
                 FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
                 PaymentHistoryDetails payment = new PaymentHistoryDetails();
                 ft.replace(R.id.frame,payment);
@@ -148,7 +152,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                 text_name.setText ("Chat");
                 mydrawer.closeDrawer(GravityCompat.START);
-
+                image_Notification.setVisibility(View.VISIBLE);
+                image_Cart.setVisibility(View.VISIBLE);
                 FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
                 ChatBot chatBot = new ChatBot();
                 ft.replace(R.id.frame,chatBot);
@@ -170,10 +175,26 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                 text_name.setText ("Supplier");
                 mydrawer.closeDrawer(GravityCompat.START);
-
+                image_Notification.setVisibility(View.VISIBLE);
+                image_Cart.setVisibility(View.VISIBLE);
                 FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
                 SupplierPage supplier = new SupplierPage();
                 ft.replace(R.id.frame,supplier);
+                ft.commit();
+
+            }
+        });
+
+        image_Cart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                text_name.setText ("Cart");
+                image_Cart.setVisibility(View.INVISIBLE);
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                CartActivity cart = new CartActivity();
+                ft.replace(R.id.frame,cart);
                 ft.commit();
 
             }
