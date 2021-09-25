@@ -254,14 +254,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(a);
                     }
-                }, 3 * 1000);
+                }, 4 * 1000);
             }
         }
         else {
+
             text_name.setText("Home Page");
             MainActivity.fragmentManager.beginTransaction()
-                    .replace(R.id.frame,new Home(),null).addToBackStack(null).commit();
-            //Whatever
+                    .replace(R.id.frame,new Home(),"testID").addToBackStack(null).commit();
+            image_Notification.setVisibility(View.VISIBLE);
+            image_Cart.setVisibility(View.VISIBLE);
+
+
         }
     }
 }

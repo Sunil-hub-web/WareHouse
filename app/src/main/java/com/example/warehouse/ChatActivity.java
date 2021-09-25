@@ -25,17 +25,6 @@ public class ChatActivity extends Fragment {
 
         View view = inflater.inflate(R.layout.chat_activity,container,false);
 
-      /*  text_admin = view.findViewById(R.id.admin);
-
-        text_admin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                MainActivity.fragmentManager.beginTransaction()
-                        .replace(R.id.frame,new ChatBot(),null).addToBackStack(null).commit();
-            }
-        });*/
-
         return view;
     }
 }
