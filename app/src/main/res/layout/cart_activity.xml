@@ -98,10 +98,7 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"></ImageView>
 
-
     </RelativeLayout>
-
-
 
         <RelativeLayout
             android:layout_width="match_parent"

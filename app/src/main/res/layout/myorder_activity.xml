@@ -335,13 +335,14 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/contnueShoping"
+            android:id="@+id/continueShoping"
             android:layout_width="175dp"
             android:layout_height="44dp"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/button_back"
             android:text="Continue shoping"
-            android:textColor="@color/white"></Button>
+            android:textColor="@color/white"
+            android:textAllCaps="false"></Button>
 
         <TextView
             android:id="@+id/back"

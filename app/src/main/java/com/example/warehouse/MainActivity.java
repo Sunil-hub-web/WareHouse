@@ -89,6 +89,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                 text_name.setText ("Home Page");
                 mydrawer.closeDrawer(GravityCompat.START);
+                imageView.setVisibility(View.VISIBLE);
                 FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
                 Home home = new Home();
                 ft.replace(R.id.frame,home);
@@ -122,6 +123,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 ft.replace(R.id.frame,notification);
                 ft.commit();
 
+                imageView.setVisibility(View.INVISIBLE);
+
             }
         });
 
@@ -147,8 +150,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 mydrawer.closeDrawer(GravityCompat.START);
 
                 FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-                ChatActivity notification = new ChatActivity();
-                ft.replace(R.id.frame,notification);
+                ChatBot chatBot = new ChatBot();
+                ft.replace(R.id.frame,chatBot);
                 ft.commit();
 
             }
@@ -197,4 +200,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
+
+
+
 }
+

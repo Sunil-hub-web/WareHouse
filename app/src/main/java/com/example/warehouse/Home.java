@@ -2,39 +2,30 @@ package com.example.warehouse;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.text.SpannableString;
-import android.text.Spanned;
-import android.text.style.StrikethroughSpan;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBar;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
-import androidx.viewpager2.widget.ViewPager2;
-
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
-
-import Getsetter.MostSoldProduct;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Home extends Fragment {
 
+    private static final int NUM_PAGES = 3 ;
     ViewPager viewPager;
     LinearLayout sliderDotspanel;
     private int dotscount;
@@ -47,6 +38,10 @@ public class Home extends Fragment {
     TextView text_name;
     int Images[]={R.drawable.rectangle49,R.drawable.rectangle51,R.drawable.rectangle49};
     int Images1[]={R.drawable.rectangle56,R.drawable.rectangle_57,R.drawable.rectangle56};
+
+    int currentPage = 0;
+    final long DELAY_MS = 500;//delay in milliseconds before task is to be executed
+    final long PERIOD_MS = 4000;
 
     @Nullable
     @org.jetbrains.annotations.Nullable
@@ -108,12 +103,13 @@ public class Home extends Fragment {
 
 
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getContext());
-
         viewPager.setAdapter(viewPagerAdapter);
 
         dotscount = viewPagerAdapter.getCount();
-        //dots = new ImageView[dotscount];
 
+        ScrollViewpager();
+
+        //dots = new ImageView[dotscount];
        /* for (int i = 0; i < dotscount; i++) {
 
             dots[i] = new ImageView(getContext());
@@ -151,5 +147,29 @@ public class Home extends Fragment {
 
             }
         });
+    }
+
+    public void ScrollViewpager(){
+
+        /*After setting the adapter use the timer */
+        final Handler handler = new Handler();
+        final Runnable Update = new Runnable() {
+            public void run() {
+                if (currentPage == NUM_PAGES) {
+                    currentPage = 0;
+                }
+                viewPager.setCurrentItem(currentPage++, true);
+                viewPager.arrowScroll(1000);
+            }
+        };
+
+        Timer timer = new Timer(); // This will create a new Thread
+        timer.schedule(new TimerTask() { // task to be scheduled
+            @Override
+            public void run() {
+                handler.post(Update);
+            }
+        }, DELAY_MS, PERIOD_MS);
+
     }
 }

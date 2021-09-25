@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -18,6 +20,7 @@ public class ProductActivity extends Fragment {
 
     TextView t1, t2, t3;
     LinearLayout inc;
+    Button btn_AddCart;
 
     @Nullable
     @org.jetbrains.annotations.Nullable
@@ -28,6 +31,7 @@ public class ProductActivity extends Fragment {
 
        View view = inflater.inflate(R.layout.product_activity,container,false);
 
+         btn_AddCart = view.findViewById(R.id.addCart);
         inc = view.findViewById(R.id.inc);
         t1 = view.findViewById(R.id.t1);
         t2 = view.findViewById(R.id.t2);
@@ -47,6 +51,19 @@ public class ProductActivity extends Fragment {
             }
         });
 
+        btn_AddCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //text_name.setText("Serach");
+
+                FragmentTransaction ft1 = getFragmentManager().beginTransaction();
+                CartActivity cart = new CartActivity();
+                ft1.replace(R.id.frame,cart);
+                ft1.commit();
+            }
+        });
+
 
         return view;
     }
@@ -58,7 +75,7 @@ public class ProductActivity extends Fragment {
             t2.setText(String.valueOf(y));
         }else {
             y--;
-            if(y == 0){
+            if(y <= 0){
                 t2.setText("0");
             }else {
                 t2.setText(String.valueOf(y));
