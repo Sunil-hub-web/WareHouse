@@ -56,7 +56,7 @@ public class Home extends Fragment {
 
         inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view1 = inflater.inflate(R.layout.home_home,null);
-        text_name = view1.findViewById(R.id.name);
+        //text_name = view1.findViewById(R.id.name);
 
 
         edit_Serach = view.findViewById(R.id.serach);
@@ -68,7 +68,7 @@ public class Home extends Fragment {
             @Override
             public void onClick(View v) {
 
-                text_name.setText("Serach");
+               // text_name.setText("Serach");
                 FragmentTransaction ft1 = getFragmentManager().beginTransaction();
                 SerachPage search = new SerachPage();
                 ft1.replace(R.id.frame,search);

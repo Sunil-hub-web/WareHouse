@@ -175,8 +175,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                 text_name.setText ("Supplier");
                 mydrawer.closeDrawer(GravityCompat.START);
-                image_Notification.setVisibility(View.VISIBLE);
-                image_Cart.setVisibility(View.VISIBLE);
+
                 FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
                 SupplierPage supplier = new SupplierPage();
                 ft.replace(R.id.frame,supplier);
