@@ -118,9 +118,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
-        text_ProductListing.setOnClickListener(new View.OnClickListener() {
+        text_Chart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                mydrawer.closeDrawer(GravityCompat.START);
+
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                ChatBot chatBot = new ChatBot();
+                ft.replace(R.id.frame, chatBot);
+                ft.commit();
+
 
             }
         });
@@ -143,7 +151,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         image_Cart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
 
                 text_name.setText("Cart");
                 image_Cart.setVisibility(View.INVISIBLE);
