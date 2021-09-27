@@ -4,10 +4,6 @@
     android:layout_height="match_parent"
     android:background="@drawable/chatbot_back">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/chatbot_back">
 
         <RelativeLayout
             android:id="@+id/r1"
@@ -16,7 +12,7 @@
             android:background="@drawable/side_nav_bar">
 
             <LinearLayout
-                android:id="@+id/l1"
+                android:id="@+id/ln1"
                 android:layout_width="165dp"
                 android:layout_height="94dp"
                 android:layout_marginLeft="30dp"
@@ -39,7 +35,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/l1"
+                android:layout_below="@id/ln1"
 
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="17dp">
@@ -85,7 +81,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginTop="15dp">
+            android:layout_marginTop="15dp"
+            android:id="@+id/l1">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -201,12 +198,10 @@
             android:textSize="22dp"
             android:layout_marginLeft="55dp"
             android:textStyle="bold"
-            android:layout_marginBottom="30dp"
+            android:layout_marginTop="60dp"
+            android:layout_below="@id/l1"
             android:layout_alignParentBottom="true"></TextView>
 
 
     </RelativeLayout>
 
-
-
-</RelativeLayout>
