@@ -192,18 +192,20 @@
                 android:layout_toRightOf="@id/profile_image"></TextView>
 
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/LogOut"
-                android:textColor="#ED2525"
-                android:textSize="22dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginLeft="55dp"
-                android:textStyle="bold"
-                android:layout_toRightOf="@id/profile_image"></TextView>
 
         </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/LogOut"
+            android:textColor="#ED2525"
+            android:textSize="22dp"
+            android:layout_marginLeft="55dp"
+            android:textStyle="bold"
+            android:layout_marginBottom="30dp"
+            android:layout_alignParentBottom="true"></TextView>
+
 
     </RelativeLayout>
 
