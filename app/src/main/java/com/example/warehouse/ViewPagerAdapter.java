@@ -25,6 +25,11 @@ public class ViewPagerAdapter extends PagerAdapter {
     }
 
     @Override
+    public float getPageWidth(int position) {
+        return 0.95f;
+    }
+
+    @Override
     public boolean isViewFromObject(View view, Object object) {
         return view == object;
     }
@@ -50,4 +55,5 @@ public class ViewPagerAdapter extends PagerAdapter {
         vp.removeView(view);
 
     }
+
 }
