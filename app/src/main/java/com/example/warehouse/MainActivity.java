@@ -32,14 +32,10 @@ import org.jetbrains.annotations.NotNull;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout mydrawer;
-    private ActionBarDrawerToggle mytoggle;
     NavigationView navigationView;
     TextView text_homePage, text_OrderPage, text_name, text_PaymentHistory,
             text_Chart, text_ProductListing, text_Supplier;
     ImageView image_Notification, image_Cart;
-    LayoutInflater inflater;
-    Button btn_addToCart1;
-    TextView textView;
 
     private Boolean exit = false;
 
@@ -54,7 +50,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         mydrawer = (DrawerLayout) findViewById(R.id.mydrwaer);
         navigationView = findViewById(R.id.navigationview);
-
 
         navigationView.setNavigationItemSelectedListener(this);
         View header = navigationView.getHeaderView(0);
@@ -193,18 +188,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        int id = item.getItemId();
-
-        if (mytoggle.onOptionsItemSelected(item)) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 
     @Override
