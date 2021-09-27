@@ -102,50 +102,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 ft.commit();
             }
         });
-        image_Notification.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                text_name.setText("Notification");
-                mydrawer.closeDrawer(GravityCompat.START);
-
-                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-                Notifaction notification = new Notifaction();
-                ft.replace(R.id.frame, notification);
-                ft.commit();
-
-                image_Notification.setVisibility(View.INVISIBLE);
-
-            }
-        });
 
         text_PaymentHistory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                text_name.setText("Payment History");
                 mydrawer.closeDrawer(GravityCompat.START);
                 image_Notification.setVisibility(View.VISIBLE);
                 image_Cart.setVisibility(View.VISIBLE);
                 FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
                 PaymentHistoryDetails payment = new PaymentHistoryDetails();
                 ft.replace(R.id.frame, payment);
-                ft.commit();
-
-            }
-        });
-        text_Chart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                text_name.setText("Chat");
-                mydrawer.closeDrawer(GravityCompat.START);
-                image_Notification.setVisibility(View.VISIBLE);
-                image_Cart.setVisibility(View.VISIBLE);
-
-                FragmentTransaction ft = fragmentManager.beginTransaction();
-                ChatBot chatBot = new ChatBot();
-                ft.replace(R.id.frame, chatBot);
                 ft.commit();
 
             }
