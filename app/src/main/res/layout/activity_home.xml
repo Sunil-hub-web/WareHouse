@@ -6,17 +6,28 @@
     android:layout_height="match_parent"
     android:background="@drawable/chatbot_back">
 
-    <EditText
-        android:id="@+id/serach"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:background="@drawable/serach_back"
-        android:padding="9dp"
-        android:layout_margin="15dp"
-        android:focusable="false"
-        android:layout_centerHorizontal="true"
-        android:hint="Search"></EditText>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
+        <include
+            android:id="@+id/include"
+            layout="@layout/home_home"
+            android:layout_alignParentTop="true"
+            android:layout_height="40dp"
+            android:layout_width="match_parent"></include>
+
+        <EditText
+            android:id="@+id/serach"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@drawable/serach_back"
+            android:padding="9dp"
+            android:layout_margin="15dp"
+            android:focusable="false"
+            android:layout_centerHorizontal="true"
+            android:hint="Search"></EditText>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -122,5 +133,8 @@
             </ScrollView>
 
         </RelativeLayout>
+    </LinearLayout>
+
+
 
 </RelativeLayout>

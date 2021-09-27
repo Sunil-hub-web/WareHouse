@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -53,9 +54,13 @@ public class ProductDetailsAdapter1 extends RecyclerView.Adapter<ProductDetailsA
             @Override
             public void onClick(View view) {
 
-                AppCompatActivity activity = (AppCompatActivity) view.getContext();
+                holder.btn_addToCart1.setVisibility(View.INVISIBLE);
+                holder.linearLayout.setVisibility(View.VISIBLE);
+
+
+               /* AppCompatActivity activity = (AppCompatActivity) view.getContext();
                 CartActivity cart = new CartActivity();
-                activity.getSupportFragmentManager().beginTransaction().replace(R.id.frame,cart).addToBackStack(null).commit();
+                activity.getSupportFragmentManager().beginTransaction().replace(R.id.frame,cart).addToBackStack(null).commit();*/
 
             }
         });
@@ -72,6 +77,21 @@ public class ProductDetailsAdapter1 extends RecyclerView.Adapter<ProductDetailsA
             }
         });
 
+        holder.t1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                holder.linearLayout(false);
+            }
+        });
+
+        holder.t3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                holder.linearLayout(true);
+            }
+        });
+
+
     }
 
     @Override
@@ -81,10 +101,12 @@ public class ProductDetailsAdapter1 extends RecyclerView.Adapter<ProductDetailsA
 
     public class Viewholder extends RecyclerView.ViewHolder {
 
-        TextView price;
         Button btn_addToCart1;
         RelativeLayout relativeLayout;
         ImageView imageView1;
+
+        LinearLayout linearLayout;
+        TextView price,t1, t2, t3;
 
         public Viewholder(@NonNull @NotNull View itemView) {
             super(itemView);
@@ -94,8 +116,26 @@ public class ProductDetailsAdapter1 extends RecyclerView.Adapter<ProductDetailsA
             price = itemView.findViewById(R.id.price);
             btn_addToCart1 = itemView.findViewById(R.id.addtocart);
             relativeLayout = itemView.findViewById(R.id.clicl_product);
+
+            linearLayout = itemView.findViewById(R.id.inc);
+            t1 = itemView.findViewById(R.id.t1);
+            t2 = itemView.findViewById(R.id.t2);
+            t3 = itemView.findViewById(R.id.t3);
         }
 
-
+        private void linearLayout(Boolean x){
+            int y = Integer.parseInt(t2.getText().toString());
+            if(x){
+                y++;
+                t2.setText(String.valueOf(y));
+            }else {
+                y--;
+                if(y <= 0){
+                    t2.setText("0");
+                }else {
+                    t2.setText(String.valueOf(y));
+                }
+            }
+        }
     }
 }

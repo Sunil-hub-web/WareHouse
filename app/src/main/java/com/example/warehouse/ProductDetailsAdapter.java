@@ -112,11 +112,10 @@ public class ProductDetailsAdapter extends RecyclerView.Adapter<ProductDetailsAd
     public class MyViewholder extends RecyclerView.ViewHolder {
 
         ImageView imageView1;
-        TextView price,t1, t2, t3;;
         Button btn_addToCart1;
         RelativeLayout relativeLayout;
         LinearLayout linearLayout;
-
+        TextView price,t1, t2, t3;;
 
         public MyViewholder(@NonNull @NotNull View itemView) {
             super(itemView);

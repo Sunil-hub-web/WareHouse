@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,6 +22,8 @@ public class ProductActivity extends Fragment {
     TextView t1, t2, t3;
     LinearLayout inc;
     Button btn_AddCart;
+    ImageView image_Notification, image_Cart;
+    TextView text_name;
 
     @Nullable
     @org.jetbrains.annotations.Nullable
@@ -61,6 +64,43 @@ public class ProductActivity extends Fragment {
                 CartActivity cart = new CartActivity();
                 ft1.replace(R.id.frame,cart);
                 ft1.commit();
+            }
+        });
+
+        text_name = view.findViewById(R.id.name);
+        image_Notification = view.findViewById(R.id.imagenotification);
+        image_Cart = view.findViewById(R.id.imagecart);
+
+        text_name.setText("Product");
+
+        image_Notification.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                text_name.setText("Notification");
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                Notifaction notification = new Notifaction();
+                ft.replace(R.id.frame, notification);
+                ft.commit();
+
+                image_Notification.setVisibility(View.INVISIBLE);
+                image_Cart.setVisibility(View.VISIBLE);
+            }
+        });
+
+        image_Cart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                text_name.setText("Cart");
+                image_Cart.setVisibility(View.INVISIBLE);
+                image_Notification.setVisibility(View.VISIBLE);
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                CartActivity cart = new CartActivity();
+                ft.replace(R.id.frame, cart);
+                ft.commit();
+
             }
         });
 

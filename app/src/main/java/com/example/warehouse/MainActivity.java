@@ -52,26 +52,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         fragmentManager = getSupportFragmentManager();
 
-        ActionBar actionBar = getSupportActionBar();
-
-        actionBar.setDisplayShowCustomEnabled(true);
-        inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view1 = inflater.inflate(R.layout.home_home, null);
-        actionBar.setCustomView(view1);
-
-        image_Notification = view1.findViewById(R.id.imagenotification);
-        image_Cart = view1.findViewById(R.id.imagecart);
-        text_name = view1.findViewById(R.id.name);
-
         mydrawer = (DrawerLayout) findViewById(R.id.mydrwaer);
         navigationView = findViewById(R.id.navigationview);
 
+
         navigationView.setNavigationItemSelectedListener(this);
-        mytoggle = new ActionBarDrawerToggle(this, mydrawer, R.string.open, R.string.close);
-
-        actionBar.setBackgroundDrawable(
-                new ColorDrawable(Color.TRANSPARENT));
-
         View header = navigationView.getHeaderView(0);
         text_homePage = header.findViewById(R.id.nav_home);
 
@@ -80,10 +65,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         text_Chart = header.findViewById(R.id.nav_chart);
         text_ProductListing = header.findViewById(R.id.nav_productlisting);
         text_Supplier = header.findViewById(R.id.nav_supplier);
-        mydrawer.addDrawerListener(mytoggle);
-        mytoggle.syncState();
-        actionBar.setDisplayHomeAsUpEnabled(true);
-        mytoggle.getDrawerArrowDrawable().setColor(getResources().getColor(R.color.black));
+        text_name = findViewById(R.id.name);
+        image_Notification = findViewById(R.id.imagenotification);
+        image_Cart = findViewById(R.id.imagecart);
 
         text_name.setText("Home Page");
         mydrawer.closeDrawer(GravityCompat.START);
@@ -229,6 +213,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         return true;
     }
+
+    public void Clickmenu(View view){
+
+        // open drawer
+        openDrawer(mydrawer);
+    }
+
+    private static void openDrawer(DrawerLayout drawerLayout){
+
+        // opendrawer layout
+        drawerLayout.openDrawer(GravityCompat.START);
+    }
+
 
     @Override
     public void onBackPressed() {

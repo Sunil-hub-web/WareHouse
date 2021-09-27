@@ -33,6 +33,9 @@ public class TopProduct extends Fragment {
     LinearLayoutManager linearLayoutManager,linearLayoutManager1;
     ProductDetailsAdapter1 productDetailsAdapter1;
     TopProductDetailsAdapter topproductDetailsAdapter;
+    ImageView image_Notification, image_Cart;
+    TextView text_name;
+
 
     int Images[]={R.drawable.rectangle49,R.drawable.rectangle51,R.drawable.rectangle49};
     int Images1[]={R.drawable.rectangle56,R.drawable.rectangle_57,R.drawable.rectangle56};
@@ -53,6 +56,12 @@ public class TopProduct extends Fragment {
         recyclerView = view.findViewById(R.id.recycler);
         recyclerView1 = view.findViewById(R.id.recycler1);
 
+        text_name = view.findViewById(R.id.name);
+        image_Notification = view.findViewById(R.id.imagenotification);
+        image_Cart = view.findViewById(R.id.imagecart);
+
+        text_name.setText("Home");
+
         edit_Serach.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,6 +71,36 @@ public class TopProduct extends Fragment {
                 ft1.replace(R.id.frame,search);
                 ft1.commit();
 
+            }
+        });
+        image_Cart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                text_name.setText("Cart");
+                image_Cart.setVisibility(View.INVISIBLE);
+                image_Notification.setVisibility(View.VISIBLE);
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                CartActivity cart = new CartActivity();
+                ft.replace(R.id.frame, cart);
+                ft.commit();
+
+            }
+        });
+
+        image_Notification.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                text_name.setText("Notification");
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                Notifaction notification = new Notifaction();
+                ft.replace(R.id.frame, notification);
+                ft.commit();
+
+                image_Notification.setVisibility(View.INVISIBLE);
+                image_Cart.setVisibility(View.VISIBLE);
             }
         });
 

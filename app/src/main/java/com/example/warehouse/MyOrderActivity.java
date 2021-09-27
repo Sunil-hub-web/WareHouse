@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -16,8 +17,9 @@ import org.jetbrains.annotations.NotNull;
 
 public class MyOrderActivity extends Fragment {
 
-    TextView text_back,name;
+    TextView text_back,text_name;
     Button btn_ContinueShoping;
+    ImageView image_Notification, image_Cart;
 
     @Nullable
     @org.jetbrains.annotations.Nullable
@@ -31,15 +33,16 @@ public class MyOrderActivity extends Fragment {
 
         text_back = view.findViewById(R.id.back);
         btn_ContinueShoping = view.findViewById(R.id.continueShoping);
+        text_name = view.findViewById(R.id.name);
+        image_Notification = view.findViewById(R.id.imagenotification);
+        image_Cart = view.findViewById(R.id.imagecart);
+
+        text_name.setText("Order");
+
 
         text_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-               /* FragmentTransaction ft = getFragmentManager().beginTransaction();
-                Home home = new Home();
-                ft.replace(R.id.frame,home);
-                ft.commit();*/
 
                 MainActivity.fragmentManager.beginTransaction()
                         .replace(R.id.frame,new Home(),null).addToBackStack(null).commit();
@@ -56,7 +59,36 @@ public class MyOrderActivity extends Fragment {
                 ft.commit();
             }
         });
+        image_Cart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+
+                text_name.setText("Cart");
+                image_Cart.setVisibility(View.INVISIBLE);
+                image_Notification.setVisibility(View.VISIBLE);
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                CartActivity cart = new CartActivity();
+                ft.replace(R.id.frame, cart);
+                ft.commit();
+
+            }
+        });
+
+        image_Notification.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                text_name.setText("Notification");
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                Notifaction notification = new Notifaction();
+                ft.replace(R.id.frame, notification);
+                ft.commit();
+
+                image_Notification.setVisibility(View.INVISIBLE);
+                image_Cart.setVisibility(View.VISIBLE);
+            }
+        });
 
         return view;
     }
