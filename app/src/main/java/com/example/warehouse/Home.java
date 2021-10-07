@@ -29,7 +29,6 @@ public class Home extends Fragment {
     private static final int NUM_PAGES = 3 ;
     ViewPager viewPager;
     LinearLayout sliderDotspanel;
-    private int dotscount;
     private ImageView[] dots;
     EditText edit_Serach;
     RecyclerView recyclerView,recyclerView1;
@@ -43,6 +42,7 @@ public class Home extends Fragment {
     int currentPage = 0;
     final long DELAY_MS = 500;//delay in milliseconds before task is to be executed
     final long PERIOD_MS = 4000;
+    private int dotscount;
 
     @Nullable
     @org.jetbrains.annotations.Nullable
