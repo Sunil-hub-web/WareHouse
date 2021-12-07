@@ -12,27 +12,27 @@
         <include
             android:id="@+id/include"
             layout="@layout/home_home"
-            android:layout_alignParentTop="true"
-            android:layout_height="40dp"
-            android:layout_width="match_parent"></include>
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/forty"
+            android:layout_alignParentTop="true"></include>
 
 
         <EditText
             android:id="@+id/serach"
             android:layout_width="match_parent"
-            android:layout_height="45sp"
-            android:background="@drawable/serach_back"
-            android:padding="9dp"
-            android:layout_margin="15dp"
-            android:focusable="false"
+            android:layout_height="@dimen/forty_five"
             android:layout_centerHorizontal="true"
-            android:hint="Search"></EditText>
+            android:layout_margin="@dimen/fifteen"
+            android:background="@drawable/serach_back"
+            android:focusable="false"
+            android:hint="Search"
+            android:padding="9dp"></EditText>
 
 
         <RelativeLayout
+            android:id="@+id/main"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/main"
             android:layout_below="@id/serach">
 
             <ScrollView
@@ -47,45 +47,45 @@
                     <androidx.viewpager.widget.ViewPager
                         android:id="@+id/viewPager"
                         android:layout_width="match_parent"
-                        android:layout_height="168dp"
-                        android:layout_margin="15dp"></androidx.viewpager.widget.ViewPager>
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/fifteen"></androidx.viewpager.widget.ViewPager>
 
                     <RelativeLayout
                         android:id="@+id/r2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp"
-                        android:layout_below="@id/viewPager">
+                        android:layout_below="@id/viewPager"
+                        android:layout_marginTop="@dimen/fifteen">
 
                         <TextView
                             android:id="@+id/t2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="20dp"
+                            android:layout_marginLeft="@dimen/twenty"
                             android:text="Most Sold Product"
                             android:textColor="@color/black"
-                            android:textSize="18dp"
+                            android:textSize="@dimen/edittextsize"
                             android:textStyle="bold"></TextView>
 
                         <TextView
                             android:id="@+id/t3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginRight="20dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="@dimen/twenty"
                             android:text="View All"
                             android:textColor="@color/black"
-                            android:textSize="18dp"
-                            android:layout_alignParentRight="true"
+                            android:textSize="@dimen/edittextsize"
                             android:textStyle="bold"></TextView>
 
                     </RelativeLayout>
 
                     <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recycler"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:id="@+id/recycler"
                         android:layout_below="@id/r2"
-                        android:layout_marginTop="15dp">
+                        android:layout_marginTop="@dimen/fifteen">
 
                     </androidx.recyclerview.widget.RecyclerView>
 
@@ -94,37 +94,37 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/recycler"
-                        android:layout_marginTop="15dp">
+                        android:layout_marginTop="@dimen/fifteen">
 
                         <TextView
                             android:id="@+id/t4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="20dp"
+                            android:layout_marginLeft="@dimen/twenty"
                             android:text="Discounted "
                             android:textColor="@color/black"
-                            android:textSize="18dp"
+                            android:textSize="@dimen/edittextsize"
                             android:textStyle="bold"></TextView>
 
                         <TextView
                             android:id="@+id/t5"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginRight="20dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="@dimen/twenty"
                             android:text="View All"
                             android:textColor="@color/black"
-                            android:textSize="18dp"
-                            android:layout_alignParentRight="true"
+                            android:textSize="@dimen/edittextsize"
                             android:textStyle="bold"></TextView>
 
                     </RelativeLayout>
 
                     <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recycler1"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:id="@+id/recycler1"
                         android:layout_below="@id/r10"
-                        android:layout_marginTop="15dp">
+                        android:layout_marginTop="@dimen/fifteen">
 
                     </androidx.recyclerview.widget.RecyclerView>
 
@@ -133,13 +133,9 @@
             </ScrollView>
 
 
-
-
         </RelativeLayout>
 
     </LinearLayout>
-
-
 
 
 </RelativeLayout>

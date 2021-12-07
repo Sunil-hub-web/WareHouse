@@ -8,30 +8,30 @@
         android:id="@+id/include"
         layout="@layout/home_home"
         android:layout_alignParentTop="true"
-        android:layout_height="40dp"
+        android:layout_height="@dimen/forty"
         android:layout_width="match_parent"></include>
 
 
     <RelativeLayout
             android:id="@+id/r1"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
+            android:layout_height="@dimen/fifty"
             android:background="#0A22A1"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="@dimen/ten"
             android:layout_below="@id/include">
             <ImageView
                 android:id="@+id/adminImage"
-                android:layout_width="@dimen/admin_image_width"
-                android:layout_height="@dimen/admin_image_height"
+                android:layout_width="@dimen/forty"
+                android:layout_height="@dimen/forty"
                 android:src="@drawable/ellipse7"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="20dp"></ImageView>
+                android:layout_marginLeft="@dimen/twenty"></ImageView>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_toRightOf="@id/adminImage"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="@dimen/ten"
                 android:orientation="vertical">
 
                 <TextView
@@ -40,7 +40,7 @@
                     android:layout_height="wrap_content"
                     android:text="Admin"
                     android:textColor="@color/white"
-                    android:textSize="20dp"
+                    android:textSize="@dimen/twenty"
                     android:layout_marginTop="5dp"
                     android:textStyle="bold"></TextView>
                 <TextView
@@ -49,7 +49,7 @@
                     android:layout_height="wrap_content"
                     android:text="online"
                     android:textColor="@color/white"
-                    android:textSize="14dp"
+                    android:textSize="@dimen/textsize"
                     android:drawableLeft="@drawable/ellipse8"
                     android:textStyle="bold"></TextView>
 
@@ -57,8 +57,8 @@
 
             <ImageView
                 android:id="@+id/img2"
-                android:layout_width="28dp"
-                android:layout_height="28dp"
+                android:layout_width="@dimen/thirty"
+                android:layout_height="@dimen/thirty"
                 android:src="@drawable/group19"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="20dp"
@@ -68,11 +68,11 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_width="@dimen/chat_messageBox_width"
-            android:layout_height="@dimen/chat_messageBox_height"
+            android:layout_width="@dimen/two_hundred"
+            android:layout_height="@dimen/seventy"
             android:layout_below="@id/r1"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="10dp"
+            android:layout_marginTop="@dimen/twenty"
+            android:layout_marginLeft="@dimen/ten"
             android:background="@drawable/message_back">
 
             <LinearLayout
@@ -85,9 +85,9 @@
                     android:layout_height="wrap_content"
                     android:text="Hi, User"
                     android:textColor="@color/black"
-                    android:textSize="13dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginLeft="15dp"
+                    android:textSize="@dimen/thirteen"
+                    android:layout_marginTop="@dimen/fifteen"
+                    android:layout_marginLeft="@dimen/fifteen"
                     android:textStyle="bold"></TextView>
                 <TextView
                     android:id="@+id/t2"
@@ -95,9 +95,9 @@
                     android:layout_height="wrap_content"
                     android:text="How we can we help you ?"
                     android:textColor="@color/black"
-                    android:textSize="13dp"
+                    android:textSize="@dimen/thirteen"
                     android:layout_marginTop="5dp"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginLeft="@dimen/fifteen"
                     android:textStyle="bold"></TextView>
             </LinearLayout>
 
@@ -107,27 +107,27 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp">
+            android:layout_marginLeft="@dimen/ten"
+            android:layout_marginRight="@dimen/ten">
 
             <EditText
                 android:id="@+id/message"
-                android:layout_width="@dimen/chat_typing_width"
+                android:layout_width="@dimen/two_hundred_fifty"
                 android:layout_height="wrap_content"
                 android:background="@drawable/serach_back"
-                android:padding="15dp"
+                android:padding="@dimen/fifteen"
                 android:text="Type Something"
-                android:layout_marginBottom="20dp"
+                android:layout_marginBottom="@dimen/twenty"
                 android:layout_centerVertical="true"></EditText>
 
             <Button
-                android:layout_width="@dimen/cart_button_width"
-                android:layout_height="@dimen/cart_button_height"
+                android:layout_width="@dimen/hundred_twenty"
+                android:layout_height="@dimen/forty"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:background="@drawable/button_back"
                 android:text="Checkout"
-                android:layout_marginBottom="30dp"
+                android:layout_marginBottom="@dimen/thirty"
                 android:textColor="@color/white"
                 android:textAllCaps="false"
                 android:textStyle="bold"

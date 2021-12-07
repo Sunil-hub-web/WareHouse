@@ -17,6 +17,11 @@
     <string name="LogOut">Log Out</string>
     <string name="MyAccount">My Account</string>
     <string name="Dashboard">Dashboard</string>
+    <string name="entername">Enter You Nmae</string>
+    <string name="entercontact">Enter Your Mobile No</string>
+    <string name="enteremail">Enter Your Email</string>
+    <string name="enterpassword">Enter Your Password</string>
 
+    <string name="api_key">AIzaSyAlkeMUimRynoWVCZXB17UuC0UjsZYtw2w</string>
 
 </resources>

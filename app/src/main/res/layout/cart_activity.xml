@@ -8,21 +8,21 @@
             android:id="@+id/include"
             layout="@layout/home_home"
             android:layout_alignParentTop="true"
-            android:layout_height="40dp"
+            android:layout_height="@dimen/forty"
             android:layout_width="match_parent"></include>
 
         <RelativeLayout
             android:id="@+id/cart"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="@dimen/twenty"
             android:layout_below="@id/include">
 
             <ImageView
                 android:id="@+id/productImage"
-                android:layout_width="@dimen/cart_image_width"
-                android:layout_height="@dimen/cart_image_height"
-                android:layout_marginLeft="10dp"
+                android:layout_width="@dimen/hundred_twenty"
+                android:layout_height="@dimen/hundred_twenty"
+                android:layout_marginLeft="@dimen/ten"
                 android:src="@drawable/rectangle66">
 
             </ImageView>
@@ -40,7 +40,7 @@
                     android:text="The Product"
                     android:textColor="@color/black"
                     android:layout_marginTop="5dp"
-                    android:textSize="20dp"
+                    android:textSize="@dimen/twenty"
                     android:textStyle="bold"></TextView>
 
                 <RelativeLayout
@@ -53,7 +53,7 @@
                         android:text="Delivery : "
                         android:textColor="@color/black"
                         android:layout_marginTop="5dp"
-                        android:textSize="17dp"
+                        android:textSize="@dimen/seventeen"
                         android:textStyle="bold"></TextView>
 
                     <TextView
@@ -63,7 +63,7 @@
                         android:text="On-road"
                         android:textColor="#0A22A1"
                         android:layout_marginTop="5dp"
-                        android:textSize="17dp"
+                        android:textSize="@dimen/seventeen"
                         android:layout_toRightOf="@id/dalivery"
                         android:textStyle="bold"></TextView>
                 </RelativeLayout>
@@ -72,7 +72,7 @@
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="18dp">
+                    android:layout_marginTop="@dimen/eighteen">
                     <TextView
                         android:id="@+id/quantity"
                         android:layout_width="wrap_content"
@@ -80,7 +80,7 @@
                         android:text="1x"
                         android:textColor="@color/black"
                         android:layout_marginTop="5dp"
-                        android:textSize="17dp"
+                        android:textSize="@dimen/seventeen"
                         android:textStyle="bold"></TextView>
 
                     <TextView
@@ -90,8 +90,8 @@
                         android:text="₹ 45.00"
                         android:textColor="@color/black"
                         android:layout_marginTop="5dp"
-                        android:layout_marginLeft="40dp"
-                        android:textSize="17dp"
+                        android:layout_marginLeft="@dimen/forty"
+                        android:textSize="@dimen/seventeen"
                         android:layout_toRightOf="@id/quantity"
                         android:textStyle="bold"></TextView>
                 </RelativeLayout>
@@ -100,9 +100,9 @@
 
             <ImageView
                 android:id="@+id/delete"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginRight="15dp"
+                android:layout_width="@dimen/thirty"
+                android:layout_height="@dimen/thirty"
+                android:layout_marginRight="@dimen/fifteen"
                 android:src="@drawable/trashsimple"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"></ImageView>
@@ -113,7 +113,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_above="@+id/rel1"
-            android:layout_marginBottom="20dp">
+            android:layout_marginBottom="@dimen/twenty">
             <TextView
                 android:id="@+id/invoice"
                 android:layout_width="wrap_content"
@@ -121,8 +121,8 @@
                 android:text="Invoice "
                 android:textColor="@color/black"
                 android:layout_marginTop="5dp"
-                android:layout_margin="15dp"
-                android:textSize="25dp"
+                android:layout_margin="@dimen/fifteen"
+                android:textSize="@dimen/twenty_five"
                 android:textStyle="bold"></TextView>
 
             <View
@@ -131,7 +131,7 @@
                 android:layout_height="1dp"
                 android:layout_below="@+id/invoice"
                 android:layout_marginLeft="4dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="@dimen/ten"
                 android:layout_marginRight="4dp"
                 android:background="#000000" />
 
@@ -140,24 +140,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/view"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp">
+                android:layout_marginLeft="@dimen/fifteen"
+                android:layout_marginRight="@dimen/fifteen">
                 <TextView
                     android:id="@+id/productName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Product"
                     android:textColor="@color/black"
-                    android:textSize="20dp"
+                    android:textSize="@dimen/twenty"
                     android:textStyle="bold"></TextView>
                 <TextView
                     android:id="@+id/quantity1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="@dimen/ten"
                     android:text="1x"
                     android:textColor="@color/black"
-                    android:textSize="20dp"
+                    android:textSize="@dimen/twenty"
                     android:textStyle="bold"
                     android:layout_toRightOf="@id/productName"></TextView>
                 <TextView
@@ -166,7 +166,7 @@
                     android:layout_height="wrap_content"
                     android:text="₹ 45.00"
                     android:textColor="@color/black"
-                    android:textSize="20dp"
+                    android:textSize="@dimen/twenty"
                     android:textStyle="bold"
                     android:layout_alignParentRight="true"></TextView>
             </RelativeLayout>
@@ -176,16 +176,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/r5"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="15dp">
+                android:layout_marginLeft="@dimen/fifteen"
+                android:layout_marginRight="@dimen/fifteen"
+                android:layout_marginTop="@dimen/fifteen">
                 <TextView
                     android:id="@+id/tax"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Tax"
                     android:textColor="@color/black"
-                    android:textSize="20dp"
+                    android:textSize="@dimen/twenty"
                     android:textStyle="bold"></TextView>
 
                 <TextView
@@ -194,7 +194,7 @@
                     android:layout_height="wrap_content"
                     android:text="₹ 4.00"
                     android:textColor="@color/black"
-                    android:textSize="20dp"
+                    android:textSize="@dimen/twenty"
                     android:textStyle="bold"
                     android:layout_alignParentRight="true"></TextView>
             </RelativeLayout>
@@ -204,16 +204,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/r6"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="15dp">
+                android:layout_marginLeft="@dimen/fifteen"
+                android:layout_marginRight="@dimen/fifteen"
+                android:layout_marginTop="@dimen/fifteen">
                 <TextView
                     android:id="@+id/shipping"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Shipping"
                     android:textColor="@color/black"
-                    android:textSize="20dp"
+                    android:textSize="@dimen/twenty"
                     android:textStyle="bold"></TextView>
 
                 <TextView
@@ -222,7 +222,7 @@
                     android:layout_height="wrap_content"
                     android:text="₹ 1.00"
                     android:textColor="@color/black"
-                    android:textSize="20dp"
+                    android:textSize="@dimen/fifteen"
                     android:textStyle="bold"
                     android:layout_alignParentRight="true"></TextView>
             </RelativeLayout>
@@ -232,9 +232,9 @@
                 android:layout_height="wrap_content"
                 android:text="Apply "
                 android:textColor="@color/black"
-                android:layout_marginTop="15dp"
-                android:layout_marginLeft="15dp"
-                android:textSize="25dp"
+                android:layout_marginTop="@dimen/fifteen"
+                android:layout_marginLeft="@dimen/fifteen"
+                android:textSize="@dimen/twenty_five"
                 android:layout_below="@+id/r7"
                 android:textStyle="bold"></TextView>
             <RelativeLayout
@@ -242,17 +242,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/apply"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="15dp">
+                android:layout_marginLeft="@dimen/fifteen"
+                android:layout_marginRight="@dimen/fifteen"
+                android:layout_marginTop="@dimen/fifteen">
                 <TextView
                     android:id="@+id/coupanCode"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Type Coupan Code"
                     android:textColor="@color/black"
-                    android:textSize="20dp"
-                    android:layout_marginLeft="15dp"
+                    android:textSize="@dimen/twenty"
+                    android:layout_marginLeft="@dimen/fifteen"
                     android:textStyle="bold"></TextView>
 
                 <TextView
@@ -261,7 +261,7 @@
                     android:layout_height="wrap_content"
                     android:text="Change"
                     android:textColor="#0A22A1"
-                    android:textSize="20dp"
+                    android:textSize="@dimen/twenty"
                     android:textStyle="bold"
                     android:layout_alignParentRight="true"></TextView>
             </RelativeLayout>
@@ -272,7 +272,7 @@
                 android:layout_height="1dp"
                 android:layout_below="@+id/r8"
                 android:layout_marginLeft="4dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="@dimen/ten"
                 android:layout_marginRight="4dp"
                 android:background="#000000" />
 
@@ -281,7 +281,7 @@
         <RelativeLayout
             android:id="@+id/rel1"
             android:layout_width="match_parent"
-            android:layout_height="96dp"
+            android:layout_height="@dimen/ninety"
             android:background="@drawable/cartbutton_back"
             android:layout_alignParentBottom="true">
 
@@ -291,14 +291,14 @@
                 android:orientation="vertical"
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="50dp">
+                android:layout_marginLeft="@dimen/fifty">
                 <TextView
                     android:id="@+id/total"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Total"
                     android:textColor="@color/black"
-                    android:textSize="25dp"
+                    android:textSize="@dimen/twenty_five"
                     android:layout_marginLeft="15dp"
                     android:textStyle="bold"></TextView>
                 <TextView
@@ -315,11 +315,11 @@
 
             <Button
                 android:id="@+id/checkOut"
-                android:layout_width="@dimen/cart_butt_width"
-                android:layout_height="@dimen/cart_butt_height"
+                android:layout_width="@dimen/hundred_fifty"
+                android:layout_height="@dimen/sixty"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="15dp"
+                android:layout_marginRight="@dimen/fifteen"
                 android:background="@drawable/button_back"
                 android:text="Checkout"
                 android:textColor="@color/white"

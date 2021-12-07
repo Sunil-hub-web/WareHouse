@@ -20,8 +20,8 @@
 
         <ImageView
             android:id="@+id/img"
-            android:layout_width="@dimen/cart_image_width"
-            android:layout_height="@dimen/cart_image_height"
+            android:layout_width="@dimen/hundred_twenty"
+            android:layout_height="@dimen/hundred_twenty"
             android:layout_marginLeft="10dp"
             android:src="@drawable/rectangle66">
 

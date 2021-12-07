@@ -20,8 +20,8 @@
 
             <ImageView
                 android:id="@+id/product_image3"
-                android:layout_width="@dimen/home_image_width"
-                android:layout_height="@dimen/home_image_height"
+                android:layout_width="@dimen/hundred_twenty"
+                android:layout_height="@dimen/hundred_fifty"
                 android:src="@drawable/rectangle56"></ImageView>
 
             <TextView
@@ -103,7 +103,7 @@
 
         <Button
             android:id="@+id/addtocart"
-            android:layout_width="@dimen/home_butt_width"
+            android:layout_width="@dimen/hundred_twenty"
             android:layout_height="wrap_content"
             android:layout_below="@id/clicl_product"
             android:layout_marginTop="5dp"

@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private DrawerLayout mydrawer;
     NavigationView navigationView;
+
     TextView text_homePage, text_OrderPage, text_name, text_PaymentHistory,
             text_Chart, text_ProductListing, text_Supplier;
     ImageView image_Notification, image_Cart;

@@ -8,7 +8,7 @@
         <RelativeLayout
             android:id="@+id/r1"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/nav_card_height"
+            android:layout_height="@dimen/two_hundred"
             android:background="@drawable/side_nav_bar">
 
             <LinearLayout
@@ -36,17 +36,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/ln1"
-
+                android:layout_marginBottom="@dimen/ten"
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="17dp">
 
                 <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
                     android:id="@+id/profile_image"
-                    android:layout_width="@dimen/profile_image_width"
-                    android:layout_height="@dimen/profile_image_height"
+                    android:layout_width="@dimen/seventy"
+                    android:layout_height="@dimen/seventy"
                     android:src="@drawable/profileimage"
                     app:civ_border_color="#FF000000"
-                    app:civ_border_width="2dp" />
+                    app:civ_border_width="2dp"/>
 
                 <TextView
                     android:id="@+id/userName"

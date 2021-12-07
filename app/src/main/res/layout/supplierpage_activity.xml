@@ -7,7 +7,7 @@
         android:id="@+id/include"
         layout="@layout/home_home"
         android:layout_alignParentTop="true"
-        android:layout_height="40dp"
+        android:layout_height="@dimen/forty"
         android:layout_width="match_parent"></include>
 
 
@@ -17,10 +17,10 @@
         android:layout_below="@id/include">
         <ImageView
             android:id="@+id/img"
-            android:layout_width="337dp"
-            android:layout_height="143dp"
-            android:layout_marginLeft="35dp"
-            android:layout_marginTop="40dp"
+            android:layout_width="@dimen/three_hundred_fifty"
+            android:layout_height="@dimen/hundred_fifty"
+            android:layout_marginLeft="@dimen/thirty"
+            android:layout_marginTop="@dimen/forty"
             android:src="@drawable/rectangle9"></ImageView>
 
         <TextView
@@ -28,21 +28,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/img"
-            android:layout_marginLeft="35dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginLeft="@dimen/thirty_five"
+            android:layout_marginTop="@dimen/ten"
             android:text="Xyz Farm house"
             android:textColor="@color/black"
-            android:textSize="25dp"
+            android:textSize="@dimen/twenty_five"
             android:textStyle="bold"></TextView>
         <TextView
             android:id="@+id/tt3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="45dp"
+            android:layout_marginTop="@dimen/twenty"
+            android:layout_marginRight="@dimen/forty_five"
             android:text="4.2"
             android:textColor="@color/black"
-            android:textSize="20dp"
+            android:textSize="@dimen/twenty"
             android:layout_below="@id/img"
             android:layout_alignParentRight="true"></TextView>
         <TextView
@@ -50,43 +50,43 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:layout_marginLeft="35dp"
+            android:layout_marginLeft="@dimen/thirty_five"
             android:text="Location : kolkata"
             android:textColor="@color/black"
-            android:textSize="15dp"
+            android:textSize="@dimen/fifteen"
             android:layout_below="@id/tt"></TextView>
 
         <TextView
             android:id="@+id/tt5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:layout_marginLeft="35dp"
+            android:layout_marginTop="@dimen/twenty_five"
+            android:layout_marginLeft="@dimen/thirty_five"
             android:text="Supplier info"
             android:textColor="@color/black"
-            android:textSize="15dp"
+            android:textSize="@dimen/fifteen"
             android:layout_below="@id/tt4"></TextView>
 
         <TextView
             android:id="@+id/tt6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:layout_marginLeft="30dp"
+            android:layout_marginTop="@dimen/fifteen"
+            android:layout_marginLeft="@dimen/thirty"
             android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum quis venenatis rhoncus libero posuere. Quis nulla aliquam tempus, ac fermentum. Ultricies scelerisque scelerisque lectus faucibus. Purus blandit orci, proin libero dolor. Nunc semper mauris ultricies."
             android:textColor="@color/black"
-            android:textSize="15dp"
+            android:textSize="@dimen/fifteen"
             android:layout_below="@id/tt5"></TextView>
 
         <TextView
             android:id="@+id/tt8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:layout_marginLeft="35dp"
+            android:layout_marginTop="@dimen/twenty_five"
+            android:layout_marginLeft="@dimen/thirty_five"
             android:text="Our Product"
             android:textColor="@color/black"
-            android:textSize="15dp"
+            android:textSize="@dimen/fifteen"
             android:layout_below="@id/tt6"></TextView>
 
         <RelativeLayout
@@ -94,12 +94,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/tt8"
-            android:layout_marginTop="15dp">
+            android:layout_marginTop="@dimen/fifteen">
 
             <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp">
+                android:layout_marginBottom="@dimen/twenty">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -109,31 +109,31 @@
                         android:id="@+id/rr1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp">
+                        android:layout_marginLeft="@dimen/ten">
 
                         <ImageView
                             android:id="@+id/img1"
-                            android:layout_width="130dp"
-                            android:layout_height="130dp"
+                            android:layout_width="@dimen/hundred_twenty"
+                            android:layout_height="@dimen/hundred_twenty"
                             android:src="@drawable/rectangle80"></ImageView>
                         <TextView
                             android:id="@+id/t2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_below="@id/img1"
-                            android:layout_marginTop="10dp"
+                            android:layout_marginTop="@dimen/ten"
                             android:text="  Tomato | "
                             android:textColor="@color/black"
-                            android:textSize="18dp"
+                            android:textSize="@dimen/eighteen"
                             android:textStyle="bold"></TextView>
                         <TextView
                             android:id="@+id/tt2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
+                            android:layout_marginTop="@dimen/ten"
                             android:text="Farm"
                             android:textColor="@color/black"
-                            android:textSize="18dp"
+                            android:textSize="@dimen/edittextsize"
                             android:layout_below="@id/img1"
                             android:layout_toRightOf="@id/t2"
                             android:textStyle="bold"></TextView>
@@ -151,7 +151,7 @@
                                 android:layout_marginRight="10dp"
                                 android:text="   ₹68.00"
                                 android:textColor="@color/black"
-                                android:textSize="15dp"
+                                android:textSize="@dimen/edittextsize"
                                 android:textStyle="bold"></TextView>
 
                         </RelativeLayout>
@@ -162,7 +162,7 @@
                         android:id="@+id/rr2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
+                        android:layout_marginLeft="@dimen/ten"
                         android:layout_toRightOf="@id/rr1">
 
                         <ImageView
@@ -274,8 +274,8 @@
     </RelativeLayout>
     <Button
         android:id="@+id/backtoPurchase"
-        android:layout_width="175dp"
-        android:layout_height="44dp"
+        android:layout_width="@dimen/two_hundred"
+        android:layout_height="@dimen/forty_five"
         android:background="@drawable/button_back"
         android:text="Back to purchase"
         android:textColor="@color/white"
@@ -283,7 +283,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
         android:textAllCaps="false"
-        android:layout_marginBottom="18dp"></Button>
+        android:layout_marginBottom="@dimen/fifteen"></Button>
 
 
 

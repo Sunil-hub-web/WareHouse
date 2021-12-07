@@ -7,7 +7,7 @@
         android:id="@+id/rr1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp">
+        android:layout_marginLeft="@dimen/twenty">
 
         <RelativeLayout
             android:id="@+id/clicl_product"
@@ -17,20 +17,21 @@
 
             <ImageView
                 android:id="@+id/product_image"
-                android:layout_width="@dimen/home_image_width"
-                android:layout_height="@dimen/home_image_height"
-                android:src="@drawable/rectangle49"></ImageView>
+                android:layout_width="@dimen/hundred_twenty"
+                android:layout_height="@dimen/hundred_fifty"
+                android:src="@drawable/rectangle49"
+                android:scaleType="center"></ImageView>
 
             <TextView
                 android:id="@+id/topProduct"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/product_image"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginTop="@dimen/ten"
+                android:layout_marginRight="@dimen/twenty"
                 android:text="@string/topproduct"
                 android:textColor="@color/black"
-                android:textSize="18dp"
+                android:textSize="@dimen/edittextsize"
                 android:textStyle="bold"></TextView>
 
 
@@ -46,7 +47,7 @@
 
         <Button
             android:id="@+id/addtocart"
-            android:layout_width="@dimen/home_butt_width"
+            android:layout_width="@dimen/hundred_twenty"
             android:layout_height="wrap_content"
             android:layout_below="@id/clicl_product"
             android:layout_marginTop="5dp"

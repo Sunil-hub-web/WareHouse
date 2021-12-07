@@ -20,9 +20,9 @@
 
             <ImageView
                 android:id="@+id/productImage"
-                android:layout_width="@dimen/myorder_image_width"
-                android:layout_height="@dimen/myorder_image_height"
-                android:layout_marginLeft="@dimen/marginleft"
+                android:layout_width="@dimen/seventy"
+                android:layout_height="@dimen/eighty"
+                android:layout_marginLeft="@dimen/twenty"
                 android:src="@drawable/rectangle6">
 
             </ImageView>
@@ -101,9 +101,9 @@
 
             <ImageView
                 android:id="@+id/productImage1"
-                android:layout_width="@dimen/myorder_image_width"
-                android:layout_height="@dimen/myorder_image_height"
-                android:layout_marginLeft="@dimen/marginleft"
+                android:layout_width="@dimen/seventy"
+                android:layout_height="@dimen/eighty"
+                android:layout_marginLeft="@dimen/twenty"
                 android:src="@drawable/rectangle6">
 
             </ImageView>
@@ -182,9 +182,9 @@
 
             <ImageView
                 android:id="@+id/productImage2"
-                android:layout_width="@dimen/myorder_image_width"
-                android:layout_height="@dimen/myorder_image_height"
-                android:layout_marginLeft="@dimen/marginleft"
+                android:layout_width="@dimen/seventy"
+                android:layout_height="@dimen/eighty"
+                android:layout_marginLeft="@dimen/twenty"
                 android:src="@drawable/rectangle6">
 
             </ImageView>
@@ -263,9 +263,9 @@
 
             <ImageView
                 android:id="@+id/productImage3"
-                android:layout_width="@dimen/myorder_image_width"
-                android:layout_height="@dimen/myorder_image_height"
-                android:layout_marginLeft="@dimen/marginleft"
+                android:layout_width="@dimen/seventy"
+                android:layout_height="@dimen/eighty"
+                android:layout_marginLeft="@dimen/twenty"
                 android:src="@drawable/rectangle6">
 
             </ImageView>
