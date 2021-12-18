@@ -1,4 +1,4 @@
-package com.example.warehouse;
+package com.example.warehouse.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,7 +12,11 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-public class Notifaction extends Fragment {
+import com.example.warehouse.R;
+
+import org.jetbrains.annotations.NotNull;
+
+public class PaymentHistory extends Fragment {
 
     ImageView image_Notification, image_Cart;
     TextView text_name;
@@ -20,21 +24,17 @@ public class Notifaction extends Fragment {
     @Nullable
     @org.jetbrains.annotations.Nullable
     @Override
-    public View onCreateView(@NonNull @org.jetbrains.annotations.NotNull
-                                         LayoutInflater inflater,
+    public View onCreateView(@NonNull @NotNull LayoutInflater inflater,
                              @Nullable @org.jetbrains.annotations.Nullable ViewGroup container,
                              @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
 
-
-        View view = inflater.inflate(R.layout.activity_notification,container,false);
+        View view = inflater.inflate(R.layout.paymenthistory,container,false);
 
         text_name = view.findViewById(R.id.name);
         image_Notification = view.findViewById(R.id.imagenotification);
         image_Cart = view.findViewById(R.id.imagecart);
 
-        image_Notification.setVisibility(View.INVISIBLE);
-        image_Cart.setVisibility(View.VISIBLE);
-        text_name.setText("Notification");
+        text_name.setText("Payment History");
 
 
         image_Cart.setOnClickListener(new View.OnClickListener() {
@@ -50,6 +50,21 @@ public class Notifaction extends Fragment {
                 ft.replace(R.id.frame, cart);
                 ft.commit();
 
+            }
+        });
+
+        image_Notification.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                text_name.setText("Notification");
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                Notifaction notification = new Notifaction();
+                ft.replace(R.id.frame, notification);
+                ft.commit();
+
+                image_Notification.setVisibility(View.INVISIBLE);
+                image_Cart.setVisibility(View.VISIBLE);
             }
         });
 

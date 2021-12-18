@@ -46,6 +46,7 @@ public class UserSignUpPage extends AppCompatActivity {
     Button btn_CreateAccount;
     AwesomeValidation awesomeValidation;
     int country_code;
+    TextView text_LoginPage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,17 +59,18 @@ public class UserSignUpPage extends AppCompatActivity {
         edit_ConfirmPassword = findViewById(R.id.edit_ConfirmPassword);
         edit_EMail = findViewById(R.id.edit_EMail);
         btn_CreateAccount = findViewById(R.id.btn_CreateAccount);
+        text_LoginPage = findViewById(R.id.text_LoginPage);
 
         str_CountryCode = "91";
         country_code = Integer.valueOf(str_CountryCode);
 
         awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
 
-        awesomeValidation.addValidation (UserSignUpPage.this,R.id.edit_UserName,"^[A-Za-z\\s]{1,}[\\.]{0,1}[A-Za-z\\s]{0,}$",R.string.entername);
-        awesomeValidation.addValidation (UserSignUpPage.this,R.id.edit_MobileNumber,"^[0-9]{10}$",R.string.entercontact);
-        awesomeValidation.addValidation (UserSignUpPage.this,R.id.edit_EMail, Patterns.EMAIL_ADDRESS,R.string.enteremail);
-        //awesomeValidation.addValidation (UserSignUpPage.this,R.id.edit_Password,"^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$",R.string.enterpassword);
-        //awesomeValidation.addValidation (UserSignUpPage.this,R.id.edit_ConfirmPassword,"^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$",R.string.enterpassword);
+            awesomeValidation.addValidation (UserSignUpPage.this,R.id.edit_UserName,"^[A-Za-z\\s]{1,}[\\.]{0,1}[A-Za-z\\s]{0,}$",R.string.entername);
+            awesomeValidation.addValidation (UserSignUpPage.this,R.id.edit_MobileNumber,"^[0-9]{10}$",R.string.entercontact);
+            awesomeValidation.addValidation (UserSignUpPage.this,R.id.edit_EMail, Patterns.EMAIL_ADDRESS,R.string.enteremail);
+            //awesomeValidation.addValidation (UserSignUpPage.this,R.id.edit_Password,"^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$",R.string.enterpassword);
+            //awesomeValidation.addValidation (UserSignUpPage.this,R.id.edit_ConfirmPassword,"^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$",R.string.enterpassword);
 
 
         btn_CreateAccount.setOnClickListener(new View.OnClickListener() {
@@ -87,23 +89,15 @@ public class UserSignUpPage extends AppCompatActivity {
                        // RequestOtp(str_MobileNumber);
 
                         Toast.makeText(UserSignUpPage.this, "Success", Toast.LENGTH_SHORT).show();
-/*
-                        Intent intent = new Intent(UserSignUpPage.this,VerificationOtp.class);
-
-                        intent.putExtra("str_UserName",str_UserName);
-                        intent.putExtra("str_MobileNumber",str_MobileNumber);
-                        intent.putExtra("str_EMail",str_EMail);
-                        intent.putExtra("str_Password",str_Password);
-                        intent.putExtra("str_CountryCode",str_CountryCode);
-
-                        startActivity(intent);*/
 
                         userRegister(str_UserName,str_MobileNumber,str_EMail,str_Password,country_code);
 
+
+
                     }else{
 
-                        edit_ConfirmPassword.setError("password not match");
-                        edit_Password.setError("password not match");
+                        edit_ConfirmPassword.setError("Password not match");
+                        //edit_Password.setError("password not match");
                     }
 
                 }else{
@@ -111,6 +105,15 @@ public class UserSignUpPage extends AppCompatActivity {
                     Toast.makeText(UserSignUpPage.this, "Write Proper Format", Toast.LENGTH_SHORT).show();
                 }
 
+            }
+        });
+
+        text_LoginPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(UserSignUpPage.this,UserLoginPage.class);
+                startActivity(intent);
             }
         });
 
@@ -147,6 +150,9 @@ public class UserSignUpPage extends AppCompatActivity {
 
                     String message = response.getString("msg");
                     Toast.makeText(UserSignUpPage.this, message, Toast.LENGTH_SHORT).show();
+
+                    Intent intent = new Intent(UserSignUpPage.this,UserLoginPage.class);
+                    startActivity(intent);
 
                 } catch (JSONException e) {
                     e.printStackTrace();

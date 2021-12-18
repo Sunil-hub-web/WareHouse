@@ -1,4 +1,4 @@
-package com.example.warehouse;
+package com.example.warehouse.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,9 +12,11 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.warehouse.R;
+
 import org.jetbrains.annotations.NotNull;
 
-public class PaymentHistory extends Fragment {
+public class CartActivity extends Fragment {
 
     ImageView image_Notification, image_Cart;
     TextView text_name;
@@ -26,30 +28,15 @@ public class PaymentHistory extends Fragment {
                              @Nullable @org.jetbrains.annotations.Nullable ViewGroup container,
                              @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.paymenthistory,container,false);
+        View view = inflater.inflate(R.layout.cart_activity,container,false);
 
         text_name = view.findViewById(R.id.name);
         image_Notification = view.findViewById(R.id.imagenotification);
         image_Cart = view.findViewById(R.id.imagecart);
 
-        text_name.setText("Payment History");
-
-
-        image_Cart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-
-                text_name.setText("Cart");
-                image_Cart.setVisibility(View.INVISIBLE);
-                image_Notification.setVisibility(View.VISIBLE);
-                FragmentTransaction ft = getFragmentManager().beginTransaction();
-                CartActivity cart = new CartActivity();
-                ft.replace(R.id.frame, cart);
-                ft.commit();
-
-            }
-        });
+        image_Notification.setVisibility(View.VISIBLE);
+        image_Cart.setVisibility(View.INVISIBLE);
+        text_name.setText("Cart");
 
         image_Notification.setOnClickListener(new View.OnClickListener() {
             @Override

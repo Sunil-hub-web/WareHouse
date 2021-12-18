@@ -1,11 +1,10 @@
-package com.example.warehouse;
+package com.example.warehouse.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,13 +12,15 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.warehouse.R;
+
 import org.jetbrains.annotations.NotNull;
 
-public class ChatBot extends Fragment {
+public class ChatActivity extends Fragment {
 
-    RelativeLayout rel_ChatWithAdmin;
     ImageView image_Notification, image_Cart;
     TextView text_name;
+
     @Nullable
     @org.jetbrains.annotations.Nullable
     @Override
@@ -27,30 +28,13 @@ public class ChatBot extends Fragment {
                              @Nullable @org.jetbrains.annotations.Nullable ViewGroup container,
                              @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
 
-
-        View view = inflater.inflate(R.layout.chatbot_activity,container,false);
+        View view = inflater.inflate(R.layout.chat_activity,container,false);
 
         text_name = view.findViewById(R.id.name);
         image_Notification = view.findViewById(R.id.imagenotification);
         image_Cart = view.findViewById(R.id.imagecart);
 
-        text_name.setText("ChatBot");
-
-
-        rel_ChatWithAdmin = view.findViewById(R.id.chatAdhmin);
-
-        rel_ChatWithAdmin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                //text_name.setText("Serach");
-                FragmentTransaction ft1 = getFragmentManager().beginTransaction();
-                ChatActivity caht = new ChatActivity();
-                ft1.replace(R.id.frame,caht);
-                ft1.commit();
-
-            }
-        });
+        text_name.setText("Chat");
 
         image_Notification.setOnClickListener(new View.OnClickListener() {
             @Override

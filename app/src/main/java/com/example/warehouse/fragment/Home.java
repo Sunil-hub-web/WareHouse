@@ -1,6 +1,5 @@
-package com.example.warehouse;
+package com.example.warehouse.fragment;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -13,12 +12,17 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.GravityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
+
+import com.example.warehouse.adapter.ProductDetailsAdapter;
+import com.example.warehouse.adapter.ProductDetailsAdapter1;
+import com.example.warehouse.R;
+import com.example.warehouse.adapter.ViewPagerAdapter;
+
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Timer;

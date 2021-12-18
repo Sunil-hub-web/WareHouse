@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="@dimen/ten">
+
+        <TextView
+            android:id="@+id/text_Showtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="25% Off Vegi Order"
+            android:textColor="@color/black"
+            android:textSize="@dimen/edittextsize"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/img1"
+            android:layout_marginLeft="@dimen/fifteen"
+            android:textStyle="bold"></TextView>
+
+        <TextView
+            android:id="@+id/text_ShowDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Get offer will expire in 23 days "
+            android:textColor="@color/black"
+            android:textSize="@dimen/edittextsize"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/img1"
+            android:layout_marginLeft="@dimen/fifteen"
+            android:layout_below="@+id/t4"></TextView>
+
+        <TextView
+            android:id="@+id/text_ShowDateTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Get offer will expire in 23 days "
+            android:textColor="@color/black"
+            android:textSize="@dimen/edittextsize"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/img1"
+            android:layout_marginLeft="@dimen/fifteen"
+            android:layout_below="@+id/t4"></TextView>
+
+    </LinearLayout>
+
+</RelativeLayout>

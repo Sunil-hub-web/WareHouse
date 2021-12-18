@@ -16,6 +16,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.example.warehouse.fragment.CartActivity;
+import com.example.warehouse.fragment.ChatBot;
+import com.example.warehouse.fragment.Home;
+import com.example.warehouse.fragment.MyOrderActivity;
+import com.example.warehouse.fragment.PaymentHistoryDetails;
+import com.example.warehouse.fragment.ShowAddressDetails;
+import com.example.warehouse.fragment.ShowAllProduct;
+import com.example.warehouse.fragment.SupplierPage;
+import com.example.warehouse.fragment.ViewUserDetailsFragment;
 import com.google.android.material.navigation.NavigationView;
 
 import org.jetbrains.annotations.NotNull;
@@ -26,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     NavigationView navigationView;
 
     TextView text_homePage, text_OrderPage, text_name, text_PaymentHistory,
-            text_Chart, text_ProductListing, text_Supplier;
+            text_Chart, text_ProductListing, text_Supplier,nav_Myaccount,nav_Myaddress,nav_Logout;
     ImageView image_Notification, image_Cart;
 
     private Boolean exit = false;
@@ -52,6 +61,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         text_Chart = header.findViewById(R.id.nav_chart);
         text_ProductListing = header.findViewById(R.id.nav_productlisting);
         text_Supplier = header.findViewById(R.id.nav_supplier);
+        nav_Myaccount = header.findViewById(R.id.nav_Myaccount);
+        nav_Myaddress = header.findViewById(R.id.nav_Myaddress);
+        nav_Logout = header.findViewById(R.id.nav_Logout);
         text_name = findViewById(R.id.name);
         image_Notification = findViewById(R.id.imagenotification);
         image_Cart = findViewById(R.id.imagecart);
@@ -149,6 +161,59 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 ft.replace(R.id.frame, cart);
                 ft.commit();
 
+            }
+        });
+
+        nav_Myaccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                text_name.setText("My Account");
+                mydrawer.closeDrawer(GravityCompat.START);
+
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                ViewUserDetailsFragment viewUserDetailsFragment = new ViewUserDetailsFragment();
+                ft.replace(R.id.frame, viewUserDetailsFragment);
+                ft.commit();
+            }
+        });
+
+        text_ProductListing.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                text_name.setText("Product Details");
+                mydrawer.closeDrawer(GravityCompat.START);
+
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                ShowAllProduct showAllProduct = new ShowAllProduct();
+                ft.replace(R.id.frame, showAllProduct);
+                ft.commit();
+
+            }
+        });
+
+        nav_Myaddress.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                text_name.setText("MyAddress");
+                mydrawer.closeDrawer(GravityCompat.START);
+
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                ShowAddressDetails showAddressDetails = new ShowAddressDetails();
+                ft.replace(R.id.frame, showAddressDetails);
+                ft.commit();
+
+
+            }
+        });
+
+        nav_Logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                SharedPrefManager.getInstance(MainActivity.this).logout();
             }
         });
 

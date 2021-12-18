@@ -1,4 +1,4 @@
-package com.example.warehouse;
+package com.example.warehouse.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,13 +12,14 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.warehouse.R;
+
 import org.jetbrains.annotations.NotNull;
 
-public class PaymentPage extends Fragment {
+public class DeliveryStatus extends Fragment {
 
     ImageView image_Notification, image_Cart;
     TextView text_name;
-
 
     @Nullable
     @org.jetbrains.annotations.Nullable
@@ -27,13 +28,13 @@ public class PaymentPage extends Fragment {
                              @Nullable @org.jetbrains.annotations.Nullable ViewGroup container,
                              @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.payment_activity,container,false);
+        View view = inflater.inflate(R.layout.deliverystatus_activuty,container,false);
 
         text_name = view.findViewById(R.id.name);
         image_Notification = view.findViewById(R.id.imagenotification);
         image_Cart = view.findViewById(R.id.imagecart);
 
-        text_name.setText("Payment");
+        text_name.setText("My Order");
 
 
         image_Cart.setOnClickListener(new View.OnClickListener() {

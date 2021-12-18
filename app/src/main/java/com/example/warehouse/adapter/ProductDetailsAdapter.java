@@ -1,4 +1,4 @@
-package com.example.warehouse;
+package com.example.warehouse.adapter;
 
 import android.content.Context;
 import android.text.SpannableString;
@@ -17,28 +17,36 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.warehouse.R;
+import com.example.warehouse.fragment.ProductActivity;
+
 import org.jetbrains.annotations.NotNull;
 
-public class ProductDetailsAdapter1 extends RecyclerView.Adapter<ProductDetailsAdapter1.Viewholder> {
+public class ProductDetailsAdapter extends RecyclerView.Adapter<ProductDetailsAdapter.MyViewholder> {
+
     Context context;
     int[] image;
-    public ProductDetailsAdapter1(Context applicationContext, int[] images) {
+    //ArrayList<MostSoldProduct> arraysell = new ArrayList<MostSoldProduct>();
+    AppCompatActivity activity;
+    public ProductDetailsAdapter(Context context, int[] arraysell) {
 
-        this.context = applicationContext;
-        this.image = images;
+        this.context = context;
+        this.image = arraysell;
     }
 
     @NonNull
     @NotNull
     @Override
-    public ProductDetailsAdapter1.Viewholder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
 
-        View view = LayoutInflater.from (parent.getContext ()).inflate (R.layout.home1,parent,false);
-        return new Viewholder(view);
+
+    public ProductDetailsAdapter.MyViewholder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
+
+        View view = LayoutInflater.from (parent.getContext ()).inflate (R.layout.home,parent,false);
+        return new ProductDetailsAdapter.MyViewholder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull @NotNull ProductDetailsAdapter1.Viewholder holder, int position) {
+    public void onBindViewHolder(@NonNull @NotNull ProductDetailsAdapter.MyViewholder holder, int position) {
 
         holder.imageView1.setImageResource(image[position]);
 
@@ -54,11 +62,10 @@ public class ProductDetailsAdapter1 extends RecyclerView.Adapter<ProductDetailsA
             @Override
             public void onClick(View view) {
 
-                holder.btn_addToCart1.setVisibility(View.INVISIBLE);
-                holder.linearLayout.setVisibility(View.VISIBLE);
+             holder.btn_addToCart1.setVisibility(View.INVISIBLE);
+             holder.linearLayout.setVisibility(View.VISIBLE);
 
-
-               /* AppCompatActivity activity = (AppCompatActivity) view.getContext();
+               /* activity = (AppCompatActivity) view.getContext();
                 CartActivity cart = new CartActivity();
                 activity.getSupportFragmentManager().beginTransaction().replace(R.id.frame,cart).addToBackStack(null).commit();*/
 
@@ -69,10 +76,10 @@ public class ProductDetailsAdapter1 extends RecyclerView.Adapter<ProductDetailsA
             @Override
             public void onClick(View v) {
 
-                AppCompatActivity activity = (AppCompatActivity) v.getContext();
+                activity = (AppCompatActivity) v.getContext();
                 ProductActivity product = new ProductActivity();
-                activity.getSupportFragmentManager().beginTransaction().replace(R.id.frame,product).addToBackStack(null).commit();
-
+                activity.getSupportFragmentManager().
+                        beginTransaction().replace(R.id.frame,product).addToBackStack(null).commit();
 
             }
         });
@@ -91,7 +98,6 @@ public class ProductDetailsAdapter1 extends RecyclerView.Adapter<ProductDetailsA
             }
         });
 
-
     }
 
     @Override
@@ -99,28 +105,27 @@ public class ProductDetailsAdapter1 extends RecyclerView.Adapter<ProductDetailsA
         return image.length;
     }
 
-    public class Viewholder extends RecyclerView.ViewHolder {
+    public class MyViewholder extends RecyclerView.ViewHolder {
 
+        ImageView imageView1;
         Button btn_addToCart1;
         RelativeLayout relativeLayout;
-        ImageView imageView1;
-
         LinearLayout linearLayout;
-        TextView price,t1, t2, t3;
+        TextView price,t1, t2, t3;;
 
-        public Viewholder(@NonNull @NotNull View itemView) {
+        public MyViewholder(@NonNull @NotNull View itemView) {
             super(itemView);
 
-            imageView1 = itemView.findViewById(R.id.product_image3);
-
+            imageView1 = itemView.findViewById(R.id.product_image);
             price = itemView.findViewById(R.id.price);
             btn_addToCart1 = itemView.findViewById(R.id.addtocart);
             relativeLayout = itemView.findViewById(R.id.clicl_product);
-
             linearLayout = itemView.findViewById(R.id.inc);
             t1 = itemView.findViewById(R.id.t1);
             t2 = itemView.findViewById(R.id.t2);
             t3 = itemView.findViewById(R.id.t3);
+
+
         }
 
         private void linearLayout(Boolean x){

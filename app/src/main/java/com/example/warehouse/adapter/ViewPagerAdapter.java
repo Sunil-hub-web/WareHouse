@@ -1,4 +1,4 @@
-package com.example.warehouse;
+package com.example.warehouse.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,6 +8,8 @@ import android.widget.ImageView;
 
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
+
+import com.example.warehouse.R;
 
 public class ViewPagerAdapter extends PagerAdapter {
 

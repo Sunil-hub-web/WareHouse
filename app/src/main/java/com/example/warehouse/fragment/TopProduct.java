@@ -1,9 +1,6 @@
-package com.example.warehouse;
+package com.example.warehouse.fragment;
 
 import android.os.Bundle;
-import android.text.SpannableString;
-import android.text.Spanned;
-import android.text.style.StrikethroughSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +16,11 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
+
+import com.example.warehouse.R;
+import com.example.warehouse.adapter.ProductDetailsAdapter1;
+import com.example.warehouse.adapter.TopProductDetailsAdapter;
+import com.example.warehouse.adapter.ViewPagerAdapter;
 
 import org.jetbrains.annotations.NotNull;
 

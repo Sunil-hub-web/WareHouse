@@ -1,4 +1,4 @@
-package com.example.warehouse;
+package com.example.warehouse.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,12 +12,17 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.warehouse.R;
+import com.example.warehouse.fragment.CartActivity;
+import com.example.warehouse.fragment.Notifaction;
+
 import org.jetbrains.annotations.NotNull;
 
-public class PaymentHistoryDetails extends Fragment {
+public class SerachPage extends Fragment {
 
     ImageView image_Notification, image_Cart;
     TextView text_name;
+
 
     @Nullable
     @org.jetbrains.annotations.Nullable
@@ -26,14 +31,13 @@ public class PaymentHistoryDetails extends Fragment {
                              @Nullable @org.jetbrains.annotations.Nullable ViewGroup container,
                              @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.detailspaymenthistory_activity,container,false);
-
+        View view = inflater.inflate(R.layout.serach_activity,container,false);
 
         text_name = view.findViewById(R.id.name);
         image_Notification = view.findViewById(R.id.imagenotification);
         image_Cart = view.findViewById(R.id.imagecart);
 
-        text_name.setText("Details Payment History");
+        text_name.setText("Serach");
 
 
         image_Cart.setOnClickListener(new View.OnClickListener() {
@@ -66,7 +70,6 @@ public class PaymentHistoryDetails extends Fragment {
                 image_Cart.setVisibility(View.VISIBLE);
             }
         });
-
 
         return view;
     }

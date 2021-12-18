@@ -19,6 +19,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.warehouse.MainActivity;
 import com.example.warehouse.R;
 import com.example.warehouse.SharedPrefManager;
 import com.example.warehouse.modelclass.Login_ModelClass;
@@ -109,7 +110,7 @@ public class UserLoginPage extends AppCompatActivity {
 
                         SharedPrefManager.getInstance(UserLoginPage.this).userLogin(login_modelClass);
 
-                        Intent intent = new Intent(UserLoginPage.this,ViewUserDetails.class);
+                        Intent intent = new Intent(UserLoginPage.this, MainActivity.class);
                         startActivity(intent);
                     }
 

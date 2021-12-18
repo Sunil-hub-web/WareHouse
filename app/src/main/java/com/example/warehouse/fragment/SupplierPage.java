@@ -1,4 +1,4 @@
-package com.example.warehouse;
+package com.example.warehouse.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,12 +8,16 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+
+import com.example.warehouse.MainActivity;
+import com.example.warehouse.R;
+import com.example.warehouse.fragment.CartActivity;
+import com.example.warehouse.fragment.Home;
+import com.example.warehouse.fragment.Notifaction;
 
 import org.jetbrains.annotations.NotNull;
 

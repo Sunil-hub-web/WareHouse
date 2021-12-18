@@ -65,7 +65,7 @@
                 </TextView>
 
                 <EditText
-                    android:id="@+id/edit_house"
+                    android:id="@+id/edit_House"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/fifty"
                     android:layout_marginTop="@dimen/five"
@@ -74,8 +74,9 @@
                     android:drawablePadding="@dimen/twenty"
                     android:ems="10"
                     android:imeOptions="actionDone"
-                    android:inputType="text"
+                    android:inputType="numberSigned"
                     android:paddingLeft="20dp"
+                    android:fontFamily="@font/poppins_regular"
                     android:textColor="#000000"
                     android:textSize="@dimen/edittextsize"
                     android:textStyle="normal"/>
@@ -101,7 +102,7 @@
                     android:drawablePadding="@dimen/twenty"
                     android:ems="10"
                     android:imeOptions="actionDone"
-                    android:inputType="number"
+                    android:inputType="text"
                     android:paddingLeft="20dp"
                     android:textColor="#000000"
                     android:textSize="@dimen/edittextsize"
@@ -154,7 +155,7 @@
                     android:drawablePadding="@dimen/twenty"
                     android:ems="10"
                     android:imeOptions="actionDone"
-                    android:inputType="number"
+                    android:inputType="text"
                     android:paddingLeft="20dp"
                     android:textColor="#000000"
                     android:textSize="@dimen/edittextsize"
@@ -207,7 +208,7 @@
                     android:drawablePadding="@dimen/twenty"
                     android:ems="10"
                     android:imeOptions="actionDone"
-                    android:inputType="number"
+                    android:inputType="text"
                     android:paddingLeft="20dp"
                     android:textColor="#000000"
                     android:textSize="@dimen/edittextsize"
@@ -250,6 +251,22 @@
                     android:layout_marginTop="@dimen/ten">
 
                 </TextView>
+
+                <EditText
+                    android:id="@+id/edit_LatLong"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/fifty"
+                    android:layout_marginTop="@dimen/five"
+                    android:layout_weight="1"
+                    android:background="@drawable/edittextback"
+                    android:drawablePadding="@dimen/twenty"
+                    android:ems="10"
+                    android:imeOptions="actionDone"
+                    android:inputType="number"
+                    android:paddingLeft="20dp"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/edittextsize"
+                    android:textStyle="normal"/>
 
                 <Button
                     android:id="@+id/btn_Submit"

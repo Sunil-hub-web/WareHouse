@@ -23,9 +23,17 @@ public class AppURL {
     public static final String forgetPasswordResendOtp = "http://kisan.aimplatfarm.com/api/v1/userapp/auth/login/forget-password/resend-otp";
 
     public static final String addAddressDetails = "http://kisan.aimplatfarm.com/api/v1/userapp/dashboard/address/add";
+
     public static final String updateAddressDetails = "http://kisan.aimplatfarm.com/api/v1/userapp/dashboard/address/edit/60e9d9c6d9ed7801d0c5dc80";
+
     public static final String deleteAddressDetails = "http://kisan.aimplatfarm.com/api/v1/userapp/dashboard/address/delete/60e9da29d9ed7801d0c5dc84";
+
     public static final String addressDetailsById = "http://kisan.aimplatfarm.com/api/v1/userapp/dashboard/address/60e9d9c6d9ed7801d0c5dc80";
+
     public static final String getAllressDetailsById = "http://kisan.aimplatfarm.com/api/v1/userapp/dashboard/address/all";
+
+    public static final String getNotofication = "http://kisan.aimplatfarm.com/api/v1/userapp/dashboard/view/notification";
+
+    public static final String showAllProduct = "http://kisan.aimplatfarm.com/api/v1/userapp/product/all";
 
 }

@@ -1,20 +1,20 @@
-package com.example.warehouse;
+package com.example.warehouse.adapter;
 
 import android.content.Context;
-import android.text.SpannableString;
-import android.text.Spanned;
-import android.text.style.StrikethroughSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.warehouse.R;
+import com.example.warehouse.fragment.CartActivity;
+import com.example.warehouse.fragment.ProductActivity;
 
 import org.jetbrains.annotations.NotNull;
 
