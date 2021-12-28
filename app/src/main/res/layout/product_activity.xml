@@ -27,22 +27,34 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <ImageView
-                    android:id="@+id/img"
-                    android:layout_width="337dp"
-                    android:layout_height="143dp"
-                    android:layout_marginLeft="35dp"
-                    android:layout_marginTop="40dp"
-                    android:src="@drawable/rectangle79"></ImageView>
+                <androidx.viewpager2.widget.ViewPager2
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/two_hundred"
+                    android:id="@+id/recyclerShowImage"
+                    android:layout_marginLeft="@dimen/thirty"
+                    android:layout_marginRight="@dimen/thirty"
+                    android:layout_marginTop="@dimen/ten"
+                    android:layout_marginBottom="@dimen/five">
+
+                </androidx.viewpager2.widget.ViewPager2>
+
+                <LinearLayout
+                    android:id="@+id/dots_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/recyclerShowImage"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:orientation="horizontal"></LinearLayout>
 
                 <TextView
-                    android:id="@+id/tt"
+                    android:id="@+id/text_productName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/img"
+                    android:layout_below="@id/dots_container"
                     android:layout_marginLeft="35dp"
                     android:layout_marginTop="10dp"
-                    android:text="Tomato | "
+                    android:text="Tomato"
                     android:textColor="@color/black"
                     android:textSize="25dp"
                     android:textStyle="bold"></TextView>
@@ -51,19 +63,19 @@
                     android:id="@+id/tt2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/img"
+                    android:layout_below="@id/dots_container"
                     android:layout_marginTop="10dp"
-                    android:layout_toRightOf="@id/tt"
-                    android:text="Farm"
+                    android:layout_toRightOf="@id/text_productName"
+                    android:text=" | Farm"
                     android:textColor="@color/black"
                     android:textSize="25dp"
                     android:textStyle="bold"></TextView>
 
                 <TextView
-                    android:id="@+id/tt3"
+                    android:id="@+id/text_totalReating"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/img"
+                    android:layout_below="@id/dots_container"
                     android:layout_alignParentRight="true"
                     android:layout_marginTop="20dp"
                     android:layout_marginRight="45dp"
@@ -71,6 +83,16 @@
                     android:textColor="@color/black"
                     android:textSize="20dp"
                     android:textStyle="bold"></TextView>
+
+                <Spinner
+                    android:id="@+id/text_weigh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tt4"
+                    android:layout_marginTop="@dimen/fifteen"
+                    android:layout_marginLeft="35dp">
+
+                </Spinner>
 
                 <TextView
                     android:id="@+id/tt4"
@@ -87,7 +109,7 @@
                     android:id="@+id/tt5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/tt4"
+                    android:layout_below="@id/text_weigh"
                     android:layout_marginLeft="35dp"
                     android:layout_marginTop="25dp"
                     android:text="Product Info"
@@ -95,7 +117,7 @@
                     android:textSize="15dp"></TextView>
 
                 <TextView
-                    android:id="@+id/tt6"
+                    android:id="@+id/text_ProductDescription"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/tt5"
@@ -109,7 +131,7 @@
                     android:id="@+id/ch1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/tt6"
+                    android:layout_below="@id/text_ProductDescription"
                     android:layout_marginLeft="30dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginRight="20dp"
@@ -212,6 +234,7 @@
                 </RelativeLayout>
 
         </ScrollView>
+
     </LinearLayout>
 
     <LinearLayout
@@ -265,7 +288,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="01"
+                    android:text="0"
                     android:textColor="@color/black"
                     android:textSize="25sp" />
 
@@ -290,14 +313,26 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/t"
+                android:id="@+id/symbole"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="35dp"
                 android:layout_marginTop="10dp"
-                android:text="₹ 68.00"
+                android:text="₹"
                 android:textColor="@color/black"
                 android:textSize="30dp"
+                android:textStyle="bold"></TextView>
+
+            <TextView
+                android:id="@+id/text_ProductPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/five"
+                android:layout_marginTop="10dp"
+                android:text="68.00"
+                android:textColor="@color/black"
+                android:textSize="30dp"
+                android:layout_toRightOf="@id/symbole"
                 android:textStyle="bold"></TextView>
 
             <TextView
@@ -305,7 +340,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:layout_toRightOf="@id/t"
+                android:layout_toRightOf="@id/text_ProductPrice"
                 android:text="Per kg"
                 android:textColor="@color/black"
                 android:textSize="10dp"

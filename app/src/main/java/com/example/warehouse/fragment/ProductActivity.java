@@ -1,12 +1,17 @@
 package com.example.warehouse.fragment;
 
+import android.app.ProgressDialog;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Html;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,18 +19,57 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager2.widget.ViewPager2;
 
+import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.warehouse.R;
+import com.example.warehouse.activity.ViewCategoryProduct;
+import com.example.warehouse.adapter.GrocerySpinerAdapter;
+import com.example.warehouse.adapter.ProductDetailsSpinerAdapter;
+import com.example.warehouse.adapter.ShowCategoryProductAdapter;
+import com.example.warehouse.adapter.ViewImageadapter;
+import com.example.warehouse.modelclass.CateGoryImage_ModelClass;
+import com.example.warehouse.modelclass.CategoryProduct_ModelClass;
+import com.example.warehouse.modelclass.CategoryWeight_ModelClass;
+import com.example.warehouse.modelclass.ProductDetailsImage_ModelClass;
+import com.example.warehouse.modelclass.ProductDetailsWeight_ModelClass;
+import com.example.warehouse.modelclass.ProductDetails_ModelClass;
+import com.example.warehouse.url.AppURL;
 
 import org.jetbrains.annotations.NotNull;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 public class ProductActivity extends Fragment {
 
-    TextView t1, t2, t3;
+    TextView t1, t2, t3, text_productName, text_totalReating, text_ProductDescription,text_ProductPrice;
     LinearLayout inc;
     Button btn_AddCart;
     ImageView image_Notification, image_Cart;
     TextView text_name;
+    ViewPager2 recyclerShowImage;
+    ViewImageadapter viewImageadapter;
+    TextView[] dots;
+    LinearLayout dots_container;
+    Spinner text_weigh;
+    String price;
+    double productPrice = 0;
+
+
+    ArrayList<ProductDetails_ModelClass> show_ProductDetails;
+    ArrayList<ProductDetailsImage_ModelClass> productDetailsImage;
+    ArrayList<ProductDetailsWeight_ModelClass> productDetailsWeight;
 
     @Nullable
     @org.jetbrains.annotations.Nullable
@@ -34,18 +78,51 @@ public class ProductActivity extends Fragment {
                              @Nullable @org.jetbrains.annotations.Nullable ViewGroup container,
                              @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
 
-       View view = inflater.inflate(R.layout.product_activity,container,false);
+        View view = inflater.inflate(R.layout.product_activity, container, false);
 
-         btn_AddCart = view.findViewById(R.id.addCart);
+        btn_AddCart = view.findViewById(R.id.addCart);
         inc = view.findViewById(R.id.inc);
         t1 = view.findViewById(R.id.t1);
         t2 = view.findViewById(R.id.t2);
         t3 = view.findViewById(R.id.t3);
+        recyclerShowImage = view.findViewById(R.id.recyclerShowImage);
+        dots_container = view.findViewById(R.id.dots_container);
+        text_weigh = view.findViewById(R.id.text_weigh);
+        text_ProductDescription = view.findViewById(R.id.text_ProductDescription);
+        text_totalReating = view.findViewById(R.id.text_totalReating);
+        text_productName = view.findViewById(R.id.text_productName);
+        text_ProductPrice = view.findViewById(R.id.text_ProductPrice);
+
+        String productid = getTag();
+        showProduct_Details(productid);
+
+        Toast.makeText(getContext(), productid, Toast.LENGTH_SHORT).show();
 
         t1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 inc(false);
+
+                String quantity = t2.getText().toString().trim();
+                String tprice = text_ProductPrice.getText().toString().trim();
+
+                double d_tprice = Double.valueOf(tprice);
+                double d_price = Double.valueOf(price);
+
+                if(quantity.equals("1")){
+
+                    text_ProductPrice.setText(price);
+
+                }else{
+
+                    productPrice = d_price - d_tprice;
+
+                    String total_price = String.valueOf(productPrice);
+
+                    text_ProductPrice.setText(total_price);
+                }
+
+
             }
         });
 
@@ -53,6 +130,17 @@ public class ProductActivity extends Fragment {
             @Override
             public void onClick(View view) {
                 inc(true);
+
+                String quantity = t2.getText().toString().trim();
+
+                    double d_price = Double.valueOf(price);
+                    double d_quantity = Double.valueOf(quantity);
+                    productPrice = productPrice + d_price;
+
+                    String total_price = String.valueOf(productPrice);
+
+                    text_ProductPrice.setText(total_price);
+
             }
         });
 
@@ -64,7 +152,7 @@ public class ProductActivity extends Fragment {
 
                 FragmentTransaction ft1 = getFragmentManager().beginTransaction();
                 CartActivity cart = new CartActivity();
-                ft1.replace(R.id.frame,cart);
+                ft1.replace(R.id.frame, cart);
                 ft1.commit();
             }
         });
@@ -106,25 +194,208 @@ public class ProductActivity extends Fragment {
             }
         });
 
+        recyclerShowImage.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+            @Override
+            public void onPageSelected(int position) {
+
+                selectedIndicatorPosition(position);
+                super.onPageSelected(position);
+            }
+        });
+
 
         return view;
     }
 
-    private void inc(Boolean x){
+    private void inc(Boolean x) {
         int y = Integer.parseInt(t2.getText().toString());
-        if(x){
+        if (x) {
             y++;
             t2.setText(String.valueOf(y));
-        }else {
+        } else {
             y--;
-            if(y <= 0){
-                t2.setText("0");
-            }else {
+            if (y <= 0) {
+                t2.setText("1");
+            } else {
                 t2.setText(String.valueOf(y));
             }
         }
 
         Toast.makeText(getActivity(), t2.getText(), Toast.LENGTH_SHORT).show();
 
+    }
+
+    public void showProduct_Details(String productid) {
+
+        String url = AppURL.getProductById + productid;
+
+        ProgressDialog progressDialog = new ProgressDialog(getContext());
+        progressDialog.show();
+        progressDialog.setContentView(R.layout.progress_dialog);
+        TextView textView = progressDialog.findViewById(R.id.text);
+        textView.setText("Show Product Please wait...");
+        progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        progressDialog.setCancelable(false);
+
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+                progressDialog.dismiss();
+
+                try {
+
+                    JSONObject jsonObject = new JSONObject(response);
+                    String message = jsonObject.getString("err");
+
+                    if (message.equals("false")) {
+
+                        show_ProductDetails = new ArrayList<>();
+
+                        String productDetails = jsonObject.getString("productDetails");
+
+                        JSONObject jsonObject_product = new JSONObject(productDetails);
+
+                        String discount = jsonObject_product.getString("discount");
+                        String id = jsonObject_product.getString("_id");
+                        String title = jsonObject_product.getString("title");
+                        price = jsonObject_product.getString("price");
+                        String type = jsonObject_product.getString("type");
+                        String description = jsonObject_product.getString("description");
+                        String categoryId = jsonObject_product.getString("categoryId");
+                        String totalRating = jsonObject_product.getString("totalRating");
+
+                        text_productName.setText(title);
+                        text_totalReating.setText(totalRating);
+                        text_ProductDescription.setText(description);
+                        text_ProductPrice.setText(price);
+
+
+                        int total_Reating = Integer.valueOf(totalRating);
+
+                        productDetailsImage = new ArrayList<>();
+
+                        String images = jsonObject_product.getString("images");
+
+                        JSONArray jsonArray_images = new JSONArray(images);
+
+                        for (int j = 0; j < jsonArray_images.length(); j++) {
+
+                            String image = jsonArray_images.get(0).toString();
+
+
+                            ProductDetailsImage_ModelClass productDetailsImage_modelClass = new ProductDetailsImage_ModelClass(
+                                    image
+                            );
+
+                            productDetailsImage.add(productDetailsImage_modelClass);
+
+                        }
+
+                        productDetailsWeight = new ArrayList<>();
+
+                        String weight = jsonObject_product.getString("weight");
+
+                        JSONArray jsonArray_weight = new JSONArray(weight);
+
+
+                        for (int k = 0; k < jsonArray_weight.length(); k++) {
+
+                            String str_weight = jsonArray_weight.get(k).toString();
+
+
+                            ProductDetailsWeight_ModelClass productDetailsWeight_modelClass = new ProductDetailsWeight_ModelClass(
+                                    str_weight
+                            );
+                            productDetailsWeight.add(productDetailsWeight_modelClass);
+
+                        }
+
+                        ProductDetails_ModelClass productDetails_modelClass = new ProductDetails_ModelClass(
+                                discount, id, title, price, type, description, total_Reating, categoryId, productDetailsImage, productDetailsWeight
+                        );
+
+                        show_ProductDetails.add(productDetails_modelClass);
+
+                    }
+
+                    viewImageadapter = new ViewImageadapter(getContext(), productDetailsImage);
+                    recyclerShowImage.setAdapter(viewImageadapter);
+
+                    Log.d("productDetailsImage",productDetailsImage.toString());
+                    int arraysize = productDetailsImage.size();
+
+                    dots = new TextView[arraysize];
+
+                    dotsIndicator();
+
+                    ProductDetailsSpinerAdapter adapter = new ProductDetailsSpinerAdapter(getContext(), android.R.layout.simple_spinner_dropdown_item
+                            , productDetailsWeight);
+                    text_weigh.setAdapter(adapter);
+
+
+                        /*gridLayoutManager = new GridLayoutManager(ViewCategoryProduct.this,2, GridLayoutManager.VERTICAL, false);
+                        showCategoryProductAdapter = new ShowCategoryProductAdapter(ViewCategoryProduct.this, category);
+                        categoryProductRecycler.setLayoutManager(gridLayoutManager);
+                        categoryProductRecycler.setHasFixedSize(true);
+                        categoryProductRecycler.setAdapter(showCategoryProductAdapter);*/
+
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+                progressDialog.dismiss();
+                error.printStackTrace();
+                Toast.makeText(getContext(), "" + error, Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+        stringRequest.setRetryPolicy(new DefaultRetryPolicy(30000, 3, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        RequestQueue requestQueue = Volley.newRequestQueue(getContext());
+        requestQueue.add(stringRequest);
+
+    }
+
+    private void selectedIndicatorPosition(int position) {
+
+
+        for (int i = 0; i < dots.length; i++) {
+
+
+            if (i == position) {
+
+                dots[i].setTextColor(Color.BLUE);
+
+            } else {
+
+                dots[i].setTextColor(Color.BLACK);
+            }
+        }
+
+    }
+
+    private void dotsIndicator() {
+
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT);
+        params.setMargins(10, 10, 10, 10);
+
+        for (int i = 0; i < dots.length; i++) {
+
+            dots[i] = new TextView(getContext());
+            dots[i].setText(Html.fromHtml("&#9679;"));
+            dots[i].setTextSize(20);
+            dots[i].setPadding(5, 0, 5, 0);
+            dots[i].setLayoutParams(params);
+            dots_container.addView(dots[i]);
+        }
     }
 }

@@ -1,10 +1,13 @@
 package com.example.warehouse.fragment;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,6 +29,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.warehouse.R;
 import com.example.warehouse.SharedPrefManager;
 import com.example.warehouse.activity.AddressDetails;
+import com.example.warehouse.activity.UserLoginPage;
 import com.example.warehouse.adapter.AddressDetailsAdapter;
 import com.example.warehouse.modelclass.AddressDetails_ModelClass;
 import com.example.warehouse.url.AppURL;
@@ -46,10 +50,11 @@ public class ShowAddressDetails extends Fragment {
     AddressDetailsAdapter addressDetailsAdapter;
     LinearLayoutManager linearLayoutManager;
     ArrayList<AddressDetails_ModelClass> viewAddressDetails = new ArrayList<>();
-    String House,street,locality,city,state,country,zip,Latitude,Longitude,Default,id,userid,token;
+    String House, street, locality, city, state, country, zip, Latitude, Longitude, Default, id, userid, token;
 
     ImageView image_Notification, image_Cart;
     TextView text_name;
+    Button btn_addaddress;
 
     @Nullable
     @org.jetbrains.annotations.Nullable
@@ -58,13 +63,14 @@ public class ShowAddressDetails extends Fragment {
                              @Nullable @org.jetbrains.annotations.Nullable ViewGroup container,
                              @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.viewaddress,container,false);
+        View view = inflater.inflate(R.layout.viewaddress, container, false);
 
         addressRecycler = view.findViewById(R.id.addressRecycler);
 
         text_name = view.findViewById(R.id.name);
         image_Notification = view.findViewById(R.id.imagenotification);
         image_Cart = view.findViewById(R.id.imagecart);
+        btn_addaddress = view.findViewById(R.id.btn_addaddress);
 
         image_Notification.setVisibility(View.VISIBLE);
         image_Cart.setVisibility(View.INVISIBLE);
@@ -73,11 +79,18 @@ public class ShowAddressDetails extends Fragment {
         token = SharedPrefManager.getInstance(getContext()).getUser().getToken();
         viewAddressDetails(token);
 
+        btn_addaddress.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                Intent intent = new Intent(getContext(),AddressDetails.class);
+                startActivity(intent);
+            }
+        });
         return view;
     }
 
-    public void viewAddressDetails(String token){
+    public void viewAddressDetails(String token) {
 
         ProgressDialog progressDialog = new ProgressDialog(getContext());
         progressDialog.show();
@@ -92,19 +105,20 @@ public class ShowAddressDetails extends Fragment {
             public void onResponse(String response) {
 
                 progressDialog.dismiss();
+                Log.d("Ranj_ShowAddres",response.toString());
 
                 try {
 
                     JSONObject jsonObject = new JSONObject(response);
                     String message = jsonObject.getString("err");
 
-                    if(message.equals("true")){
+                    if (message.equals("true")) {
 
                         String address = jsonObject.getString("address");
 
                         JSONArray jsonArray_address = new JSONArray(address);
 
-                        for (int i=0;i<jsonArray_address.length();i++){
+                        for (int i = 0; i < jsonArray_address.length(); i++) {
 
                             JSONObject jsonObject_address = jsonArray_address.getJSONObject(i);
 
@@ -115,22 +129,22 @@ public class ShowAddressDetails extends Fragment {
                             street = jsonObject_address.getString("street");
                             locality = jsonObject_address.getString("locality");
                             city = jsonObject_address.getString("city");
-                             state = jsonObject_address.getString("state");
-                             country = jsonObject_address.getString("country");
-                             zip = jsonObject_address.getString("zip");
-                             Latitude = jsonObject_address.getString("longitude");
-                             Longitude = jsonObject_address.getString("latitude");
+                            state = jsonObject_address.getString("state");
+                            country = jsonObject_address.getString("country");
+                            zip = jsonObject_address.getString("zip");
+                            Latitude = jsonObject_address.getString("longitude");
+                            Longitude = jsonObject_address.getString("latitude");
                             String v = jsonObject_address.getString("__v");
 
                             AddressDetails_ModelClass addressDetails_modelClass = new AddressDetails_ModelClass(
-                                    House,street,locality,city,state,country,zip,Latitude,Longitude,Default,id,userid
+                                    House, street, locality, city, state, country, zip, Latitude, Longitude, Default, id, userid
                             );
 
                             viewAddressDetails.add(addressDetails_modelClass);
                         }
 
-                        linearLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
-                        addressDetailsAdapter = new AddressDetailsAdapter(getContext(),viewAddressDetails);
+                        linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+                        addressDetailsAdapter = new AddressDetailsAdapter(getContext(), viewAddressDetails);
                         addressRecycler.setLayoutManager(linearLayoutManager);
                         addressRecycler.setHasFixedSize(true);
                         addressRecycler.setAdapter(addressDetailsAdapter);
@@ -145,23 +159,28 @@ public class ShowAddressDetails extends Fragment {
             @Override
             public void onErrorResponse(VolleyError error) {
 
-                progressDialog.dismiss ();
+                progressDialog.dismiss();
                 error.printStackTrace();
-                Toast.makeText (getContext(), ""+error, Toast.LENGTH_SHORT).show ( );
+                Log.d("Ranj_addresError",error.toString());
+                Toast.makeText(getContext(), "Session Expired ,Login Again" , Toast.LENGTH_SHORT).show();
 
+                SharedPrefManager sharedPrefManager = new SharedPrefManager(getActivity());
+                sharedPrefManager.logout();
+                Intent intentLogin = new Intent(getActivity(), UserLoginPage.class);
+                startActivity(intentLogin);
             }
-        }){
+        }) {
 
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
 
-                Map<String,String> header = new HashMap<>();
-                header.put("auth-token",token);
+                Map<String, String> header = new HashMap<>();
+                header.put("auth-token", token);
                 return header;
             }
         };
 
-        stringRequest.setRetryPolicy(new DefaultRetryPolicy(30000,3,DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        stringRequest.setRetryPolicy(new DefaultRetryPolicy(30000, 3, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         RequestQueue requestQueue = Volley.newRequestQueue(getContext());
         requestQueue.add(stringRequest);
 

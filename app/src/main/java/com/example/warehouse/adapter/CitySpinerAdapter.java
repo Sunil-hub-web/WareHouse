@@ -11,15 +11,15 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.warehouse.R;
-import com.example.warehouse.modelclass.ProductWeight_ModelClass;
+import com.example.warehouse.modelclass.Weight_ModelClass;
 
 import java.util.ArrayList;
 
-public class CitySpinerAdapter extends ArrayAdapter<ProductWeight_ModelClass> {
+public class CitySpinerAdapter extends ArrayAdapter<Weight_ModelClass> {
 
-    private ArrayList<ProductWeight_ModelClass> myarrayList;
+    private ArrayList<Weight_ModelClass> myarrayList;
 
-    public CitySpinerAdapter(Context context, int textViewResourceId, ArrayList<ProductWeight_ModelClass> modelArrayList) {
+    public CitySpinerAdapter(Context context, int textViewResourceId, ArrayList<Weight_ModelClass> modelArrayList) {
         super(context, textViewResourceId, modelArrayList);
         this.myarrayList = modelArrayList;
     }
@@ -31,7 +31,7 @@ public class CitySpinerAdapter extends ArrayAdapter<ProductWeight_ModelClass> {
 
     @Nullable
     @Override
-    public ProductWeight_ModelClass getItem(int position) {
+    public Weight_ModelClass getItem(int position) {
         return myarrayList.get(position);
     }
 
@@ -49,7 +49,7 @@ public class CitySpinerAdapter extends ArrayAdapter<ProductWeight_ModelClass> {
     }
 
     private View getCustomView(int position, ViewGroup parent) {
-        ProductWeight_ModelClass model = getItem(position);
+        Weight_ModelClass model = getItem(position);
 
         View spinnerRow = LayoutInflater.from(parent.getContext()).inflate(R.layout.spinner_textview, parent, false);
 

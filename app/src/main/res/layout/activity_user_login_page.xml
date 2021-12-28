@@ -30,6 +30,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Welcome "
+            android:visibility="invisible"
             android:fontFamily="@font/poppins_bold"
             android:textColor="@color/black"
             android:textSize="@dimen/twenty_five">
@@ -40,6 +41,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Back"
+            android:visibility="invisible"
             android:fontFamily="@font/poppins_bold"
             android:textColor="@color/black"
             android:textSize="@dimen/twenty_five">
@@ -55,6 +57,7 @@
         android:src="@drawable/arrow_fram"
         android:layout_marginTop="@dimen/thirty"
         android:layout_below="@id/banner"
+        android:visibility="invisible"
         android:layout_alignParentRight="true"
         android:layout_marginRight="@dimen/twenty">
 
@@ -70,7 +73,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="E-mail &amp; Mobile Number *"
+            android:text="UserName"
             android:fontFamily="@font/poppins_regular"
             android:textColor="@color/black"
             android:textSize="@dimen/twenty_size">
@@ -114,7 +117,7 @@
             android:background="@drawable/edittextback"
             android:drawablePadding="@dimen/twenty"
             android:ems="10"
-            android:hint="UserName or Mobile No"
+            android:hint="password"
             android:imeOptions="actionDone"
             android:inputType="textPassword"
             android:paddingLeft="@dimen/eighteen"
@@ -142,7 +145,7 @@
             android:layout_below="@id/clicl_product"
             android:layout_marginTop="5dp"
             android:background="@drawable/button_back"
-            android:text="Login In"
+            android:text="Login"
             android:textColor="@color/white"
             android:fontFamily="@font/poppins_regular"
             android:textSize="@dimen/edittextsize"></Button>

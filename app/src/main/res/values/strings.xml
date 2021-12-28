@@ -9,6 +9,7 @@
     <string name="myordersavePrice">Saved ₹0.8</string>
 
     <string name="HomePage">Home Page</string>
+    <string name="category">Category</string>
     <string name="Supplier">Supplier</string>
     <string name="Orders">Orders</string>
     <string name="ProductListing">Product Listing</string>

@@ -6,7 +6,7 @@
 
     <RelativeLayout
         android:id="@+id/rr3"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:background="@drawable/product_bg">
@@ -75,9 +75,9 @@
 
         <LinearLayout
             android:id="@+id/inc"
-            android:layout_width="130dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/ten"
             android:orientation="horizontal"
             android:weightSum="3"
             android:layout_below="@id/clicl_product"

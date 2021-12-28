@@ -7,6 +7,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -16,9 +17,12 @@ import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.NetworkResponse;
+import com.android.volley.NoConnectionError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
@@ -129,20 +133,24 @@ public class UserSignUpPage extends AppCompatActivity {
         progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
         progressDialog.setCancelable(false);
 
+        JSONObject jsonObjectRegister = new JSONObject();
+        try {
 
-        Map<String,Object> params = new HashMap<>();
 
-        params.put("name",userName);
-        params.put("mobile",mobileNo);
-        params.put("emailID",emailid);
-        params.put("password",password);
-        params.put("countryCode",countryCode);
+            jsonObjectRegister.put("name", userName);
+            jsonObjectRegister.put("mobile", mobileNo);
+            jsonObjectRegister.put("emailID", emailid);
+            jsonObjectRegister.put("password", password);
+            jsonObjectRegister.put("countryCode", 91);
 
-        JSONObject jsonObjectRegister = new JSONObject(params);
+        }catch (Exception e){
+
+        }
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, AppURL.register, jsonObjectRegister, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
+                Log.d("Ranj_Register",response.toString());
 
                 progressDialog.dismiss();
 
@@ -163,9 +171,36 @@ public class UserSignUpPage extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
 
-                progressDialog.dismiss ();
-                error.printStackTrace();
-                Toast.makeText (UserSignUpPage.this, ""+error, Toast.LENGTH_SHORT).show ( );
+                progressDialog.dismiss();
+                if (error instanceof TimeoutError || error instanceof NoConnectionError) {
+
+                    Toast.makeText(getApplicationContext(), "Please check Internet Connection", Toast.LENGTH_SHORT).show();
+
+                } else {
+
+                    Log.d("successresponceVolley", "" + error.networkResponse);
+                    NetworkResponse networkResponse = error.networkResponse;
+                    if (networkResponse != null && networkResponse.data != null) {
+                        try {
+                            String jError = new String(networkResponse.data);
+                            JSONObject jsonError = new JSONObject(jError);
+//                            if (error.networkResponse.statusCode == 400) {
+                            String data = jsonError.getString("msg");
+                            Toast.makeText(UserSignUpPage.this, data, Toast.LENGTH_SHORT).show();
+
+//                            } else if (error.networkResponse.statusCode == 404) {
+//                                JSONArray data = jsonError.getJSONArray("msg");
+//                                JSONObject jsonitemChild = data.getJSONObject(0);
+//                                String ms = jsonitemChild.toString();
+//                                Toast.makeText(RegisterActivity.this, ms, Toast.LENGTH_SHORT).show();
+//
+//                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            Log.d("successresponceVolley", "" + e);
+                        }
+                    }
+                }
             }
         }){
             @Override

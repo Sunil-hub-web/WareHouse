@@ -1,10 +1,10 @@
 package com.example.warehouse.modelclass;
 
-public class ProductWeight_ModelClass {
+public class DataWeight_ModelClass {
 
     String weight;
 
-    public ProductWeight_ModelClass(String weight) {
+    public DataWeight_ModelClass(String weight) {
         this.weight = weight;
     }
 

@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/cart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/ten">
+
+        <ImageView
+            android:id="@+id/productImage"
+            android:layout_width="@dimen/hundred_ten"
+            android:layout_height="@dimen/hundred_ten"
+            android:layout_marginLeft="@dimen/ten"
+            android:src="@drawable/rectangle66">
+
+        </ImageView>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/productImage"
+            android:orientation="vertical"
+            android:layout_marginLeft="@dimen/five"
+            android:layout_toLeftOf="@id/delete">
+
+            <TextView
+                android:id="@+id/product_Name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="The Product"
+                android:textColor="@color/black"
+                android:layout_marginTop="5dp"
+                android:textSize="@dimen/edittextsize"
+                android:textStyle="bold"></TextView>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/dalivery"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Delivery : "
+                    android:textColor="@color/black"
+                    android:layout_marginTop="5dp"
+                    android:textSize="@dimen/seventeen"
+                    android:textStyle="bold"></TextView>
+
+                <TextView
+                    android:id="@+id/status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="On-road"
+                    android:textColor="#0A22A1"
+                    android:layout_marginTop="5dp"
+                    android:textSize="@dimen/seventeen"
+                    android:layout_toRightOf="@id/dalivery"
+                    android:textStyle="bold"></TextView>
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/eighteen">
+
+                <TextView
+                    android:id="@+id/quantity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="@dimen/five"
+                    android:textSize="@dimen/seventeen"
+                    android:textStyle="bold"></TextView>
+
+                <TextView
+                    android:id="@+id/quantity_symbol"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_toRightOf="@id/quantity"
+                    android:text="x"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/seventeen"
+                    android:textStyle="bold"></TextView>
+
+                <TextView
+                    android:id="@+id/product_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="45.00"
+                    android:layout_marginLeft="@dimen/ten"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="5dp"
+                    android:textSize="@dimen/seventeen"
+                    android:textStyle="bold"
+                    android:layout_toRightOf="@id/symbol"></TextView>
+
+                <TextView
+                    android:id="@+id/symbol"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="₹"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="5dp"
+                    android:textSize="@dimen/seventeen"
+                    android:layout_marginLeft="@dimen/fifty"
+                    android:textStyle="bold"></TextView>
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:orientation="vertical"
+            android:layout_centerVertical="true">
+
+            <LinearLayout
+                android:id="@+id/inc"
+                android:layout_width="@dimen/eighty"
+                android:layout_height="@dimen/thirty"
+                android:orientation="horizontal"
+                android:weightSum="3"
+                android:layout_marginTop="@dimen/fifteen"
+                android:background="@drawable/serach_back">
+
+                <TextView
+                    android:id="@+id/t3"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="+"
+                    android:background="#0A2CE8"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/t2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="1"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/t1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="-"
+                    android:background="#0A2CE8"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/btn_delete"
+                android:layout_width="@dimen/thirty"
+                android:layout_height="@dimen/thirty"
+                android:src="@drawable/trashsimple"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="@dimen/ten"
+                android:layout_gravity="center"></ImageView>
+
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -33,6 +33,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.warehouse.MainActivity;
 import com.example.warehouse.R;
 import com.example.warehouse.SharedPrefManager;
 import com.example.warehouse.adapter.AddressDetailsAdapter;
@@ -272,8 +273,13 @@ public class AddressDetails extends AppCompatActivity {
                 progressDialog.dismiss();
 
                 try {
+
                     String message = response.getString("msg");
                     Toast.makeText(AddressDetails.this, message, Toast.LENGTH_SHORT).show();
+
+                    Intent intent = new Intent(AddressDetails.this, MainActivity.class);
+                    startActivity(intent);
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -307,58 +313,5 @@ public class AddressDetails extends AppCompatActivity {
 
     }
 
-    public void deleteAddress(String token){
-
-        ProgressDialog progressDialog = new ProgressDialog(AddressDetails.this);
-        progressDialog.show();
-        progressDialog.setContentView(R.layout.progress_dialog);
-        TextView textView = progressDialog.findViewById(R.id.text);
-        textView.setText("Delete Address Please wait...");
-        progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-        progressDialog.setCancelable(false);
-
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, AppURL.deleteAddressDetails, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-
-                progressDialog.dismiss();
-
-                try {
-                    JSONObject jsonObject = new JSONObject(response);
-                    String message = jsonObject.getString("err");
-                    String msg = jsonObject.getString("msg");
-                    if(message.equals("true")){
-
-                        Toast.makeText(AddressDetails.this, msg, Toast.LENGTH_SHORT).show();
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-
-                progressDialog.dismiss ();
-                error.printStackTrace();
-                Toast.makeText (AddressDetails.this, ""+error, Toast.LENGTH_SHORT).show ( );
-
-
-            }
-        }){
-
-            @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
-
-                Map<String,String> header = new HashMap<>();
-                header.put("auth-token",token);
-                return header;
-            }
-        };
-        stringRequest.setRetryPolicy(new DefaultRetryPolicy(30000,3,DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        RequestQueue requestQueue = Volley.newRequestQueue(AddressDetails.this);
-        requestQueue.add(stringRequest);
-    }
 
 }

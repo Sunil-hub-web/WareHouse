@@ -6,6 +6,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,9 +14,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.NetworkResponse;
+import com.android.volley.NoConnectionError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
@@ -53,6 +57,7 @@ public class UserLoginPage extends AppCompatActivity {
 
                 Intent intent = new Intent(UserLoginPage.this,UserSignUpPage.class);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -91,6 +96,7 @@ public class UserLoginPage extends AppCompatActivity {
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, AppURL.userLogin, jsonObject1, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
+                Log.d("Ranj_Login_response",response.toString());
 
                 progressDialog.dismiss();
 
@@ -124,14 +130,57 @@ public class UserLoginPage extends AppCompatActivity {
             public void onErrorResponse(VolleyError error) {
 
                 progressDialog.dismiss ();
-                error.printStackTrace();
-                Toast.makeText (UserLoginPage.this, ""+error, Toast.LENGTH_SHORT).show ( );
+
+                /*error.printStackTrace();
+                Log.d("Ranj_Login_error",error.toString());
+                Toast.makeText (UserLoginPage.this, ""+error+"User Name password Not Match", Toast.LENGTH_LONG).show ( );*/
+
+                if (error instanceof TimeoutError || error instanceof NoConnectionError) {
+
+                    Toast.makeText(UserLoginPage.this, "Please check Internet Connection", Toast.LENGTH_SHORT).show();
+
+                } else {
+
+                    Log.d("successresponceVolley", "" + error.networkResponse);
+                    NetworkResponse networkResponse = error.networkResponse;
+                    if (networkResponse != null && networkResponse.data != null) {
+                        try {
+                            String jError = new String(networkResponse.data);
+                            JSONObject jsonError = new JSONObject(jError);
+//                            if (error.networkResponse.statusCode == 400) {
+                            String data = jsonError.getString("msg");
+                            Toast.makeText(UserLoginPage.this, data, Toast.LENGTH_SHORT).show();
+
+//                            } else if (error.networkResponse.statusCode == 404) {
+//                                JSONArray data = jsonError.getJSONArray("msg");
+//                                JSONObject jsonitemChild = data.getJSONObject(0);
+//                                String ms = jsonitemChild.toString();
+//                                Toast.makeText(RegisterActivity.this, ms, Toast.LENGTH_SHORT).show();
+//
+//                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            Log.d("successresponceVolley", "" + e);
+                        }
+                    }
+                }
+
 
             }
         });
 
-        jsonObjectRequest.setRetryPolicy(new DefaultRetryPolicy(50000,5,DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        jsonObjectRequest.setRetryPolicy(new DefaultRetryPolicy(500000,5,DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         RequestQueue requestQueue = Volley.newRequestQueue(UserLoginPage.this);
         requestQueue.add(jsonObjectRequest);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (SharedPrefManager.getInstance(UserLoginPage.this).isLoggedIn()) {
+
+            Intent intent = new Intent(UserLoginPage.this, MainActivity.class);
+            startActivity(intent);
+        }
     }
 }

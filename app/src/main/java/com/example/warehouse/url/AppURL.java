@@ -24,16 +24,36 @@ public class AppURL {
 
     public static final String addAddressDetails = "http://kisan.aimplatfarm.com/api/v1/userapp/dashboard/address/add";
 
-    public static final String updateAddressDetails = "http://kisan.aimplatfarm.com/api/v1/userapp/dashboard/address/edit/60e9d9c6d9ed7801d0c5dc80";
+    public static final String updateAddressDetails = "http://kisan.aimplatfarm.com/api/v1/userapp/dashboard/address/edit/";
 
-    public static final String deleteAddressDetails = "http://kisan.aimplatfarm.com/api/v1/userapp/dashboard/address/delete/60e9da29d9ed7801d0c5dc84";
+    public static final String deleteAddressDetails = "http://kisan.aimplatfarm.com/api/v1/userapp/dashboard/address/delete/";
 
-    public static final String addressDetailsById = "http://kisan.aimplatfarm.com/api/v1/userapp/dashboard/address/60e9d9c6d9ed7801d0c5dc80";
+    public static final String addressDetailsById = "http://kisan.aimplatfarm.com/api/v1/userapp/dashboard/address/";
 
     public static final String getAllressDetailsById = "http://kisan.aimplatfarm.com/api/v1/userapp/dashboard/address/all";
 
     public static final String getNotofication = "http://kisan.aimplatfarm.com/api/v1/userapp/dashboard/view/notification";
 
     public static final String showAllProduct = "http://kisan.aimplatfarm.com/api/v1/userapp/product/all";
+
+    public static final String getHomepageDetails = "http://kisan.aimplatfarm.com/api/v1/userapp/shop/home";
+
+    public static final String getTopProduct = "http://kisan.aimplatfarm.com/api/v1/userapp/shop/top-products";
+
+    public static final String addtocartItem = "http://kisan.aimplatfarm.com/api/v1/userapp/cart/product/add-toCart/";
+
+    public static final String viewCategory = "http://kisan.aimplatfarm.com/api/v1/userapp/product/categories/all";
+
+    public static final String viewCategoryProducts = "http://kisan.aimplatfarm.com/api/v1/userapp/product/category/";
+
+    public static final String getProductById = "http://kisan.aimplatfarm.com/api/v1/userapp/product/";
+
+    public static final String getCartItem = "http://kisan.aimplatfarm.com/api/v1/userapp/cart/view";
+
+    public static final String addquantity = "http://kisan.aimplatfarm.com/api/v1/userapp/cart/product/add/quantity/";
+
+    public static final String removecartbyid = "http://kisan.aimplatfarm.com/api/v1/userapp/cart/product/remove/";
+
+
 
 }

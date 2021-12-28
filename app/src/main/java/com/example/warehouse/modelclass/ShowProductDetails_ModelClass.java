@@ -4,17 +4,18 @@ import java.util.ArrayList;
 
 public class ShowProductDetails_ModelClass {
 
-    String discount,title,price;
-    ArrayList<ProductImage_ModelClass> productimage;
-    ArrayList<ProductWeight_ModelClass> productweight;
+    String discount,title,price,id;
+    ArrayList<Image_ModelClass> productimage;
+    ArrayList<Weight_ModelClass> productweight;
 
-    public ShowProductDetails_ModelClass(String discount, String title, String price, ArrayList<ProductImage_ModelClass> productimage,
-                                         ArrayList<ProductWeight_ModelClass> productweight) {
+    public ShowProductDetails_ModelClass(String discount, String title, String price, ArrayList<Image_ModelClass> productimage,
+                                         ArrayList<Weight_ModelClass> productweight,String id) {
         this.discount = discount;
         this.title = title;
         this.price = price;
         this.productimage = productimage;
         this.productweight = productweight;
+        this.id = id;
     }
 
     public String getDiscount() {
@@ -41,20 +42,28 @@ public class ShowProductDetails_ModelClass {
         this.price = price;
     }
 
-    public ArrayList<ProductImage_ModelClass> getProductimage() {
+    public ArrayList<Image_ModelClass> getProductimage() {
         return productimage;
     }
 
-    public void setProductimage(ArrayList<ProductImage_ModelClass> productimage) {
+    public void setProductimage(ArrayList<Image_ModelClass> productimage) {
         this.productimage = productimage;
     }
 
-    public ArrayList<ProductWeight_ModelClass> getProductweight() {
+    public ArrayList<Weight_ModelClass> getProductweight() {
         return productweight;
     }
 
-    public void setProductweight(ArrayList<ProductWeight_ModelClass> productweight) {
+    public void setProductweight(ArrayList<Weight_ModelClass> productweight) {
         this.productweight = productweight;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     @Override

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/topproduct"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/fifteen">
+
+        <TextView
+            android:id="@+id/text_product"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/twenty"
+            android:text="Top Products"
+            android:textColor="@color/black"
+            android:textSize="@dimen/edittextsize"
+            android:textStyle="bold"></TextView>
+
+        <TextView
+            android:id="@+id/text_TopProductsViewAll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:text="View All"
+            android:textColor="@color/black"
+            android:textSize="@dimen/edittextsize"
+            android:layout_alignParentRight="true"
+            android:textStyle="bold"></TextView>
+
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/recyclerProduct"
+        android:layout_below="@id/topproduct"
+        android:layout_marginTop="@dimen/fifteen">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+</RelativeLayout>

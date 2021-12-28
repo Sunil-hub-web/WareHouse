@@ -1,10 +1,11 @@
 package com.example.warehouse.modelclass;
 
-public class ProductImage_ModelClass {
+public class ProductDetailsImage_ModelClass {
+
 
     String images;
 
-    public ProductImage_ModelClass(String images) {
+    public ProductDetailsImage_ModelClass(String images) {
         this.images = images;
     }
 

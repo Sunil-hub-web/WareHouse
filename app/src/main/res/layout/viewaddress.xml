@@ -4,11 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
         <include
             android:id="@+id/include"
             layout="@layout/home_home"
@@ -20,12 +15,28 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/addressRecycler"
-            android:layout_marginTop="@dimen/ten">
+            android:layout_marginTop="@dimen/ten"
+            android:layout_below="@id/include"
+            android:layout_above="@id/btn_addaddress"
+            android:layout_marginBottom="@dimen/ten">
 
         </androidx.recyclerview.widget.RecyclerView>
 
-    </LinearLayout>
 
-
+    <Button
+        android:id="@+id/btn_addaddress"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/forty"
+        android:layout_marginTop="@dimen/ten"
+        android:background="@drawable/button_back"
+        android:text="Add Address"
+        android:textColor="@color/white"
+        android:fontFamily="@font/poppins_semibold"
+        android:textSize="@dimen/textsize"
+        android:layout_marginLeft="@dimen/seventy"
+        android:layout_marginRight="@dimen/seventy"
+        android:layout_marginBottom="@dimen/twenty"
+        android:textAllCaps="false"
+        android:layout_alignParentBottom="true"></Button>
 
 </RelativeLayout>

@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 
 import com.example.warehouse.fragment.CartActivity;
+import com.example.warehouse.fragment.CategoryDetails;
 import com.example.warehouse.fragment.ChatBot;
 import com.example.warehouse.fragment.Home;
 import com.example.warehouse.fragment.MyOrderActivity;
@@ -35,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     NavigationView navigationView;
 
     TextView text_homePage, text_OrderPage, text_name, text_PaymentHistory,
-            text_Chart, text_ProductListing, text_Supplier,nav_Myaccount,nav_Myaddress,nav_Logout;
+            text_Chart, text_ProductListing, text_Supplier,nav_Myaccount,nav_Myaddress,nav_Logout,nav_Category;
     ImageView image_Notification, image_Cart;
 
     private Boolean exit = false;
@@ -64,6 +65,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         nav_Myaccount = header.findViewById(R.id.nav_Myaccount);
         nav_Myaddress = header.findViewById(R.id.nav_Myaddress);
         nav_Logout = header.findViewById(R.id.nav_Logout);
+        nav_Category = header.findViewById(R.id.nav_Category);
         text_name = findViewById(R.id.name);
         image_Notification = findViewById(R.id.imagenotification);
         image_Cart = findViewById(R.id.imagecart);
@@ -214,6 +216,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             public void onClick(View v) {
 
                 SharedPrefManager.getInstance(MainActivity.this).logout();
+            }
+        });
+
+        nav_Category.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                text_name.setText("Category");
+                mydrawer.closeDrawer(GravityCompat.START);
+
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                CategoryDetails categoryDetails = new CategoryDetails();
+                ft.replace(R.id.frame, categoryDetails);
+                ft.commit();
             }
         });
 

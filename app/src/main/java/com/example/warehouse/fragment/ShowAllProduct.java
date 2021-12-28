@@ -16,7 +16,6 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -25,10 +24,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.warehouse.R;
-import com.example.warehouse.activity.AddressDetails;
 import com.example.warehouse.adapter.ShowAllProductAdapter;
-import com.example.warehouse.modelclass.ProductImage_ModelClass;
-import com.example.warehouse.modelclass.ProductWeight_ModelClass;
+import com.example.warehouse.modelclass.Image_ModelClass;
+import com.example.warehouse.modelclass.Weight_ModelClass;
 import com.example.warehouse.modelclass.ShowProductDetails_ModelClass;
 import com.example.warehouse.url.AppURL;
 
@@ -38,15 +36,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.Map;
 
 public class ShowAllProduct extends Fragment {
 
     RecyclerView recyclerShowProduct;
     ShowAllProductAdapter showAllProductAdapter;
     ArrayList<ShowProductDetails_ModelClass> productdetails;
-    ArrayList<ProductImage_ModelClass> productimage;
-    ArrayList<ProductWeight_ModelClass> productweight;
+    ArrayList<Image_ModelClass> productimage;
+    ArrayList<Weight_ModelClass> productweight;
     GridLayoutManager gridLayoutManager;
 
     ImageView image_Notification, image_Cart;
@@ -114,6 +111,7 @@ public class ShowAllProduct extends Fragment {
                             String title = jsonObject_product.getString("title");
                             String price = jsonObject_product.getString("price");
                             String type = jsonObject_product.getString("type");
+                            String id = jsonObject_product.getString("_id");
 
                             productimage = new ArrayList<>();
 
@@ -126,11 +124,11 @@ public class ShowAllProduct extends Fragment {
                                 String image = jsonArray_images.get(0).toString();
 
 
-                               ProductImage_ModelClass productImage_modelClass = new ProductImage_ModelClass(
+                               Image_ModelClass image_modelClass = new Image_ModelClass(
                                        image
                                );
 
-                               productimage.add(productImage_modelClass);
+                               productimage.add(image_modelClass);
                                 Log.d("productimage",productimage.toString());
 
                             }
@@ -147,17 +145,17 @@ public class ShowAllProduct extends Fragment {
                                 String str_weight = jsonArray_weight.get(0).toString();
 
 
-                                ProductWeight_ModelClass productWeight_modelClass = new ProductWeight_ModelClass(
+                                Weight_ModelClass weight_modelClass = new Weight_ModelClass(
                                         str_weight
                                 );
-                                productweight.add(productWeight_modelClass);
+                                productweight.add(weight_modelClass);
                                 Log.d("productweight",productweight.toString());
 
                             }
 
                             ShowProductDetails_ModelClass showProductDetails_modelClass = new ShowProductDetails_ModelClass(
 
-                                    discount,title,price,productimage,productweight
+                                    discount,title,price,productimage,productweight,id
 
                             );
 
