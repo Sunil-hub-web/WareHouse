@@ -21,7 +21,7 @@
 
             <ImageView
                 android:id="@+id/product_image"
-                android:layout_width="wrap_content"
+                android:layout_width="@dimen/hundred_twenty"
                 android:layout_height="@dimen/hundred_twenty"
                 android:layout_centerHorizontal="true"
                 android:src="@drawable/rectangle56"></ImageView>
@@ -35,6 +35,10 @@
                 android:layout_marginTop="@dimen/eight"
                 android:layout_marginRight="20dp"
                 android:text="@string/topproduct"
+                android:maxEms="7"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:scrollHorizontally="true"
                 android:textColor="@color/black"
                 android:textSize="@dimen/textsize"
                 android:textStyle="bold"></TextView>

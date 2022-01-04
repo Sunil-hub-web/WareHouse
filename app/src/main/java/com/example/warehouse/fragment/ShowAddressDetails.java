@@ -56,6 +56,7 @@ public class ShowAddressDetails extends Fragment {
     TextView text_name;
     Button btn_addaddress;
 
+
     @Nullable
     @org.jetbrains.annotations.Nullable
     @Override

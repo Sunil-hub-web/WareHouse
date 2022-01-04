@@ -37,6 +37,7 @@ import com.example.warehouse.fragment.ProductActivity;
 import com.example.warehouse.modelclass.GroceryImage_ModelClass;
 import com.example.warehouse.modelclass.GroceryWeight_ModelClass;
 import com.example.warehouse.modelclass.Grocery_ModelClass;
+import com.example.warehouse.modelclass.Image_ModelClass;
 import com.example.warehouse.url.AppURL;
 import com.squareup.picasso.Picasso;
 
@@ -101,9 +102,11 @@ public class GroceryAdapter extends RecyclerView.Adapter<GroceryAdapter.ViewHold
                 , Groceryweight);
         holder.text_weigh.setAdapter(adapter);
 
-        /*GroceryImage_ModelClass groceryImage_modelClass = Groceryimage.get(position);
-        String image = "https://kisaanandfactory.com/static_file/"+groceryImage_modelClass.getImages();
-        Picasso.with(context).load(image).into(holder.product_image);*/
+        ArrayList<GroceryImage_ModelClass> image_modelClass = grocery_details.getImage_modelClasses();
+        String image = "https://kisaanandfactory.com/static_file/"+image_modelClass.get(0);
+        Log.d("ranj_adapter_image",image);
+        Log.d("ranj_adapter_image",image_modelClass.get(0)+"");
+        Picasso.with(context).load(image).into(holder.product_image);
 
         str_quantity = holder.t2.getText().toString().trim();
         quantity = Integer.valueOf(str_quantity);

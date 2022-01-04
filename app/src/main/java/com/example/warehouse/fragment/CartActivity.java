@@ -1,6 +1,7 @@
 package com.example.warehouse.fragment;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -55,7 +56,7 @@ public class CartActivity extends Fragment {
     ArrayList<ProductDetailsImage_ModelClass> productDetailsImage;
     ArrayList<ProductDetailsWeight_ModelClass> productDetailsWeight;
 
-    String token;
+    String token,cartid;
     double totalAmount = 0,d_quantity = 0;
     Button btn_checkOut;
 
@@ -100,6 +101,31 @@ public class CartActivity extends Fragment {
             }
         });
 
+        btn_checkOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String productprice = product_price.getText().toString().trim();
+                String shippingprice = shipping_price.getText().toString().trim();
+                String texttotalmoney = text_totalmoney.getText().toString().trim();
+
+
+                //text_name.setText("Serach");
+                FragmentTransaction ft1 = getFragmentManager().beginTransaction();
+                CheckoutPage checkoutPage = new CheckoutPage();
+                Bundle args = new Bundle();
+                args.putString("productprice", productprice);
+                args.putString("shippingprice", shippingprice);
+                args.putString("texttotalmoney", texttotalmoney);
+                args.putString("cartid", cartid);
+                checkoutPage.setArguments(args);
+                ft1.replace(R.id.frame,checkoutPage);
+                ft1.commit();
+
+
+            }
+        });
+
         showCartItem(token);
 
         return view;
@@ -136,7 +162,7 @@ public class CartActivity extends Fragment {
                         JSONObject jsonObject_cartItems = new JSONObject(cartItems);
 
                         String active = jsonObject_cartItems.getString("active");
-                        String cartid = jsonObject_cartItems.getString("_id");
+                        cartid = jsonObject_cartItems.getString("_id");
                         String userId = jsonObject_cartItems.getString("userId");
 
                         String cart = jsonObject_cartItems.getString("cart");

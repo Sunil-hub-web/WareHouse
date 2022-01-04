@@ -54,6 +54,12 @@ public class AppURL {
 
     public static final String removecartbyid = "http://kisan.aimplatfarm.com/api/v1/userapp/cart/product/remove/";
 
+    public static final String addfavourite = "http://kisan.aimplatfarm.com/api/v1/userapp/product/favourite/add";
+
+    public static final String viewfavourite = "http://kisan.aimplatfarm.com/api/v1/userapp/product/favourite/view";
+
+    public static final String removefavourite = "http://kisan.aimplatfarm.com/api/v1/userapp/product/favourite/delete/";
+
 
 
 }

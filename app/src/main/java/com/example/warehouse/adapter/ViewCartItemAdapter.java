@@ -31,8 +31,12 @@ import com.example.warehouse.R;
 import com.example.warehouse.SharedPrefManager;
 import com.example.warehouse.activity.UserSignUpPage;
 import com.example.warehouse.fragment.CartActivity;
+import com.example.warehouse.modelclass.GroceryImage_ModelClass;
+import com.example.warehouse.modelclass.ProductDetailsImage_ModelClass;
+import com.example.warehouse.modelclass.ProductDetailsWeight_ModelClass;
 import com.example.warehouse.modelclass.ShowCartItem_ModelClass;
 import com.example.warehouse.url.AppURL;
+import com.squareup.picasso.Picasso;
 
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONException;
@@ -46,6 +50,8 @@ public class ViewCartItemAdapter extends RecyclerView.Adapter<ViewCartItemAdapte
 
     Context context;
     ArrayList<ShowCartItem_ModelClass> cartitem;
+    ArrayList<ProductDetailsImage_ModelClass> productDetailsImage;
+    ArrayList<ProductDetailsWeight_ModelClass> productDetailsWeight;
     String token,str_quantity,productId;
     int quantity;
     double price,d_quantity;
@@ -91,6 +97,12 @@ public class ViewCartItemAdapter extends RecyclerView.Adapter<ViewCartItemAdapte
 
 
         holder.product_price.setText(str_price);
+
+        ArrayList<ProductDetailsImage_ModelClass> productDetailsImage = showitem.getImage_modelClasses();
+        String image = "https://kisaanandfactory.com/static_file/"+productDetailsImage.get(0);
+        Log.d("ranj_adapter_image",image);
+        Log.d("ranj_adapter_image",productDetailsImage.get(0)+"");
+        Picasso.with(context).load(image).into(holder.productImage);
 
 
         holder.t1.setOnClickListener(new View.OnClickListener() {
@@ -263,7 +275,7 @@ public class ViewCartItemAdapter extends RecyclerView.Adapter<ViewCartItemAdapte
 
         TextView product_price,quantity,product_Name,t1,t2,t3;
         LinearLayout linearLayout;
-        ImageView btn_delete;
+        ImageView btn_delete,productImage;
 
 
         public ViewHolder(@NonNull @NotNull View itemView) {
@@ -272,6 +284,7 @@ public class ViewCartItemAdapter extends RecyclerView.Adapter<ViewCartItemAdapte
             product_Name = itemView.findViewById(R.id.product_Name);
             product_price = itemView.findViewById(R.id.product_price);
             quantity = itemView.findViewById(R.id.quantity);
+            productImage = itemView.findViewById(R.id.productImage);
 
             linearLayout = itemView.findViewById(R.id.inc);
             t1 = itemView.findViewById(R.id.t1);
@@ -400,7 +413,9 @@ public class ViewCartItemAdapter extends RecyclerView.Adapter<ViewCartItemAdapte
 
         String url = AppURL.removecartbyid+Productid;
 
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.PUT,url , null, new Response.Listener<JSONObject>() {
+        Log.d("url",url);
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST,url , null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
 

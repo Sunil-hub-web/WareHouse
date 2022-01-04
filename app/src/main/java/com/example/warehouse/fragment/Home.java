@@ -186,8 +186,8 @@ public class Home extends Fragment {
         });
 
 
-        showAllProduct();
-        //showTopProduct();
+        //showAllProduct();
+        showTopProduct();
         createViewPager();
 
         text_VegetablesViewAll.setOnClickListener(new View.OnClickListener() {
@@ -379,6 +379,7 @@ public class Home extends Fragment {
                             price = jsonObject_product.getString("price");
                             type = jsonObject_product.getString("type");
                             description = jsonObject_product.getString("description");
+                            String totalRating = jsonObject_product.getString("totalRating");
 
                             vegetableimage = new ArrayList<>();
 
@@ -388,7 +389,8 @@ public class Home extends Fragment {
 
                             for (int j = 0; j < jsonArray_images.length(); j++) {
 
-                                String image = jsonArray_images.get(0).toString();
+                                String image = jsonArray_images.get(j).toString();
+                                Log.d("Ranj_image",image);
 
 
                                 Image_ModelClass image_modelClass = new Image_ModelClass(
@@ -399,6 +401,8 @@ public class Home extends Fragment {
 
                             }
 
+                            Log.d("vegetableimage",vegetableimage.toString());
+
                             vegetableweight = new ArrayList<>();
 
                             String weight = jsonObject_product.getString("weight");
@@ -408,7 +412,7 @@ public class Home extends Fragment {
 
                             for (int k = 0; k < jsonArray_weight.length(); k++) {
 
-                                String str_weight = jsonArray_weight.get(0).toString();
+                                String str_weight = jsonArray_weight.get(k).toString();
 
 
                                 Weight_ModelClass weight_modelClass = new Weight_ModelClass(
@@ -420,7 +424,7 @@ public class Home extends Fragment {
 
                             Vegetables_Modelclass vegetables_modelclass = new Vegetables_Modelclass(
 
-                                    discount, id, title, price, type, description, vegetableimage, vegetableweight
+                                    discount, id, title, price, type, description, vegetableimage, vegetableweight,totalRating,""
 
                             );
 
@@ -429,7 +433,7 @@ public class Home extends Fragment {
                         }
 
                         linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
-                        vegetablesAdapter = new VegetablesAdapter(getContext(), vegetable);
+                        vegetablesAdapter = new VegetablesAdapter(getContext(), vegetable,vegetableimage);
                         vegetablesRecycler.setLayoutManager(linearLayoutManager);
                         vegetablesRecycler.setHasFixedSize(true);
                         vegetablesRecycler.setAdapter(vegetablesAdapter);

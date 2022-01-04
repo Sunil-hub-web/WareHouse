@@ -41,6 +41,7 @@ import com.example.warehouse.modelclass.ShowProductDetails_ModelClass;
 import com.example.warehouse.modelclass.Vegetables_Modelclass;
 import com.example.warehouse.modelclass.Weight_ModelClass;
 import com.example.warehouse.url.AppURL;
+import com.squareup.picasso.Picasso;
 
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONException;
@@ -60,10 +61,11 @@ public class VegetablesAdapter extends RecyclerView.Adapter<VegetablesAdapter.Vi
     String token,str_quantity,productId;
     int quantity;
 
-    public VegetablesAdapter(Context context, ArrayList<Vegetables_Modelclass> vegetable) {
+    public VegetablesAdapter(Context context, ArrayList<Vegetables_Modelclass> vegetable, ArrayList<Image_ModelClass> vegetableimage) {
 
         this.context = context;
         this.vegetable = vegetable;
+        this.vegetableimage = vegetableimage;
 
     }
 
@@ -81,6 +83,12 @@ public class VegetablesAdapter extends RecyclerView.Adapter<VegetablesAdapter.Vi
         token = SharedPrefManager.getInstance(context).getUser().getToken();
 
         Vegetables_Modelclass vegetable_details = vegetable.get(position);
+
+        ArrayList<Image_ModelClass> image_modelClass = vegetable_details.getImage_modelClasses();
+        String image = "https://kisaanandfactory.com/static_file/"+image_modelClass.get(0);
+        Log.d("ranj_adapter_image",image);
+        Log.d("ranj_adapter_image",image_modelClass.get(0)+"");
+        Picasso.with(context).load(image).into(holder.product_image);
 
         holder.text_ProductName.setText(vegetable_details.getTitle());
         holder.text_price.setText("₹"+vegetable_details.getPrice());
@@ -102,8 +110,7 @@ public class VegetablesAdapter extends RecyclerView.Adapter<VegetablesAdapter.Vi
                 , vegetableweight);
         holder.text_weigh.setAdapter(adapter);
 
-        /*productimage = new ArrayList<>();
-        productimage = product_details.getProductimage();*/
+
 
         str_quantity = holder.t2.getText().toString().trim();
         quantity = Integer.valueOf(str_quantity);

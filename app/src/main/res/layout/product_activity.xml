@@ -77,12 +77,22 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/dots_container"
                     android:layout_alignParentRight="true"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginRight="45dp"
+                    android:layout_marginTop="@dimen/twenty"
+                    android:layout_marginRight="@dimen/thirty_five"
                     android:text="4.2"
                     android:textColor="@color/black"
                     android:textSize="20dp"
                     android:textStyle="bold"></TextView>
+
+                <ImageView
+                    android:id="@+id/favouriteProduct"
+                    android:layout_width="@dimen/thirty"
+                    android:layout_height="@dimen/thirty"
+                    android:src="@drawable/love"
+                    android:layout_below="@+id/text_totalReating"
+                    android:layout_marginTop="@dimen/ten"
+                    android:layout_marginRight="@dimen/thirty_five"
+                    android:layout_alignParentRight="true"></ImageView>
 
                 <Spinner
                     android:id="@+id/text_weigh"

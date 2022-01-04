@@ -4,12 +4,13 @@ import java.util.ArrayList;
 
 public class Vegetables_Modelclass {
 
-    String discount,id,title,price,type,description;
+    String discount,id,title,price,type,description,totalRating,favid;
     ArrayList<Image_ModelClass> image_modelClasses;
     ArrayList<Weight_ModelClass> weight_modelClasses;
 
     public Vegetables_Modelclass(String discount, String id, String title, String price, String type, String description,
-                                 ArrayList<Image_ModelClass> image_modelClasses, ArrayList<Weight_ModelClass> weight_modelClasses) {
+                                 ArrayList<Image_ModelClass> image_modelClasses, ArrayList<Weight_ModelClass> weight_modelClasses,
+                                 String totalRating,String favid) {
         this.discount = discount;
         this.id = id;
         this.title = title;
@@ -18,6 +19,8 @@ public class Vegetables_Modelclass {
         this.description = description;
         this.image_modelClasses = image_modelClasses;
         this.weight_modelClasses = weight_modelClasses;
+        this.totalRating = totalRating;
+        this.favid = favid;
     }
 
     public String getDiscount() {
@@ -82,5 +85,21 @@ public class Vegetables_Modelclass {
 
     public void setWeight_modelClasses(ArrayList<Weight_ModelClass> weight_modelClasses) {
         this.weight_modelClasses = weight_modelClasses;
+    }
+
+    public String getTotalRating() {
+        return totalRating;
+    }
+
+    public void setTotalRating(String totalRating) {
+        this.totalRating = totalRating;
+    }
+
+    public String getFavid() {
+        return favid;
+    }
+
+    public void setFavid(String favid) {
+        this.favid = favid;
     }
 }

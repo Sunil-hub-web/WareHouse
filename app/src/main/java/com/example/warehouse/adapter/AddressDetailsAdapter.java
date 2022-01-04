@@ -2,16 +2,20 @@ package com.example.warehouse.adapter;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.os.Build;
 import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.AuthFailureError;
@@ -40,7 +44,8 @@ public class AddressDetailsAdapter extends RecyclerView.Adapter<AddressDetailsAd
 
     Context context;
     ArrayList<AddressDetails_ModelClass> address ;
-    String addressid,token;
+    public static String addressid,token,all_address,addressId;
+    int index;
 
 
     public AddressDetailsAdapter(Context context, ArrayList<AddressDetails_ModelClass> viewAddressDetails) {
@@ -59,6 +64,7 @@ public class AddressDetailsAdapter extends RecyclerView.Adapter<AddressDetailsAd
         return new Viewholder(view);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     public void onBindViewHolder(@NonNull @NotNull AddressDetailsAdapter.Viewholder holder, int position) {
 
@@ -89,6 +95,49 @@ public class AddressDetailsAdapter extends RecyclerView.Adapter<AddressDetailsAd
 
             }
         });
+
+        holder.card.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                all_address = address_details.getHouse()+","+address_details.getStreet()+","+address_details.getLocality()+","+
+                        address_details.getCity()+","+address_details.getState()+","+address_details.getCountry()+""+address_details.getZip();
+                addressId = address_details.getId();
+            }
+        });
+
+        holder.lin_address.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                addressId = address_details.getId();
+
+                index = position;
+                notifyDataSetChanged();
+                all_address = address_details.getHouse()+","+address_details.getStreet()+","+address_details.getLocality()+","+
+                        address_details.getCity()+","+address_details.getState()+","+address_details.getCountry()+""+address_details.getZip();
+
+            }
+        });
+
+        if(index == position){
+
+            holder.lin_address.setBackgroundResource(R.drawable.selectaddressback);
+            holder.lin_address.setElevation(15);
+
+            addressId = address_details.getId();
+            //Toast.makeText(context, addressId, Toast.LENGTH_SHORT).show();
+
+        }
+        else {
+            holder.lin_address.setBackgroundResource(R.drawable.edittextback);
+            holder.lin_address.setElevation(5);
+        }
+    }
+
+    public String addressvalue(){
+
+        return all_address;
     }
 
     @Override
@@ -100,6 +149,8 @@ public class AddressDetailsAdapter extends RecyclerView.Adapter<AddressDetailsAd
 
         TextView text_House,tetx_street,text_locality,text_city,text_state,text_country,text_zip,text_LatLong;
         Button btn_Delete;
+        CardView card;
+        LinearLayout lin_address;
 
         public Viewholder(@NonNull @NotNull View itemView) {
             super(itemView);
@@ -113,6 +164,8 @@ public class AddressDetailsAdapter extends RecyclerView.Adapter<AddressDetailsAd
             text_zip = itemView.findViewById(R.id.text_zip);
             text_LatLong = itemView.findViewById(R.id.text_LatLong);
             btn_Delete = itemView.findViewById(R.id.btn_Delete);
+            card = itemView.findViewById(R.id.card);
+            lin_address = itemView.findViewById(R.id.lin_address);
 
         }
     }

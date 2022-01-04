@@ -76,6 +76,13 @@
 
         </RelativeLayout>
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/r1"
+        android:layout_marginTop="15dp"
+        android:scrollbars="none">
+
         <LinearLayout
             android:layout_below="@id/r1"
             android:layout_width="match_parent"
@@ -202,6 +209,18 @@
                 android:layout_toRightOf="@id/profile_image"></TextView>
 
             <TextView
+                android:id="@+id/nav_Myfavourite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Myfavourite"
+                android:textColor="#5F5E5E"
+                android:textSize="22dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="55dp"
+                android:textStyle="bold"
+                android:layout_toRightOf="@id/profile_image"></TextView>
+
+            <TextView
                 android:id="@+id/nav_chart"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -213,20 +232,27 @@
                 android:textStyle="bold"
                 android:layout_toRightOf="@id/profile_image"></TextView>
 
+            <TextView
+                android:id="@+id/nav_Logout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/LogOut"
+                android:textColor="#ED2525"
+                android:textSize="22dp"
+                android:layout_marginLeft="55dp"
+                android:textStyle="bold"
+                android:layout_marginTop="60dp"
+                android:layout_below="@id/l1"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="@dimen/thirty"></TextView>
+
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/nav_Logout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/LogOut"
-            android:textColor="#ED2525"
-            android:textSize="22dp"
-            android:layout_marginLeft="55dp"
-            android:textStyle="bold"
-            android:layout_marginTop="60dp"
-            android:layout_below="@id/l1"
-            android:layout_alignParentBottom="true"></TextView>
+    </ScrollView>
+
+
+
+
 
 
     </RelativeLayout>

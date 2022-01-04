@@ -23,7 +23,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/hundred_twenty"
                 android:src="@drawable/rectangle56"
-                android:layout_centerHorizontal="true"></ImageView>
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="@dimen/twelve"
+                android:layout_marginRight="@dimen/twelve"></ImageView>
 
             <TextView
                 android:id="@+id/text_ProductName"

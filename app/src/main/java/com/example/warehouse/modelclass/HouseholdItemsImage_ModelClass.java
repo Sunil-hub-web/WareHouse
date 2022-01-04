@@ -18,8 +18,8 @@ public class HouseholdItemsImage_ModelClass {
 
     @Override
     public String toString() {
-        return "ProductImage_ModelClass{" +
-                "images='" + images + '\'' +
-                '}';
+        return /*"ProductImage_ModelClass{" +
+                "images='" +*/ images /*+ '\'' +
+                '}'*/;
     }
 }

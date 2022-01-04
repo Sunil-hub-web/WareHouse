@@ -35,7 +35,9 @@ import com.example.warehouse.fragment.ProductActivity;
 import com.example.warehouse.modelclass.HouseholdItemsImage_ModelClass;
 import com.example.warehouse.modelclass.HouseholdItemsWeight_ModelClass;
 import com.example.warehouse.modelclass.HouseholdItems_ModelClass;
+import com.example.warehouse.modelclass.Image_ModelClass;
 import com.example.warehouse.url.AppURL;
+import com.squareup.picasso.Picasso;
 
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONException;
@@ -96,8 +98,11 @@ public class HouseholdItemsAdapter extends RecyclerView.Adapter<HouseholdItemsAd
                 , houseitemsweight);
         holder.text_weigh.setAdapter(adapter);
 
-        /*productimage = new ArrayList<>();
-        productimage = product_details.getProductimage();*/
+        ArrayList<HouseholdItemsImage_ModelClass> image_modelClass = houseitems_details.getImage_modelClasses();
+        String image = "https://kisaanandfactory.com/static_file/"+image_modelClass.get(0);
+        Log.d("ranj_adapter_image",image);
+        Log.d("ranj_adapter_image",image_modelClass.get(0)+"");
+        Picasso.with(context).load(image).into(holder.product_image);
 
         str_quantity = holder.t2.getText().toString().trim();
 

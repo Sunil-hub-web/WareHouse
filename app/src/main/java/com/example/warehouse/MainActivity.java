@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.example.warehouse.fragment.CartActivity;
 import com.example.warehouse.fragment.CategoryDetails;
 import com.example.warehouse.fragment.ChatBot;
+import com.example.warehouse.fragment.FavouriteProduct;
 import com.example.warehouse.fragment.Home;
 import com.example.warehouse.fragment.MyOrderActivity;
 import com.example.warehouse.fragment.PaymentHistoryDetails;
@@ -35,8 +36,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private DrawerLayout mydrawer;
     NavigationView navigationView;
 
-    TextView text_homePage, text_OrderPage, text_name, text_PaymentHistory,
-            text_Chart, text_ProductListing, text_Supplier,nav_Myaccount,nav_Myaddress,nav_Logout,nav_Category;
+    TextView text_homePage, text_OrderPage, text_name, text_PaymentHistory,text_Chart,text_ProductListing,
+            text_Supplier,nav_Myaccount,nav_Myaddress,nav_Logout,nav_Category,nav_Myfavourite;
     ImageView image_Notification, image_Cart;
 
     private Boolean exit = false;
@@ -66,6 +67,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         nav_Myaddress = header.findViewById(R.id.nav_Myaddress);
         nav_Logout = header.findViewById(R.id.nav_Logout);
         nav_Category = header.findViewById(R.id.nav_Category);
+        nav_Myfavourite = header.findViewById(R.id.nav_Myfavourite);
         text_name = findViewById(R.id.name);
         image_Notification = findViewById(R.id.imagenotification);
         image_Cart = findViewById(R.id.imagecart);
@@ -229,6 +231,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
                 CategoryDetails categoryDetails = new CategoryDetails();
                 ft.replace(R.id.frame, categoryDetails);
+                ft.commit();
+            }
+        });
+
+        nav_Myfavourite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                text_name.setText("Favourite");
+                mydrawer.closeDrawer(GravityCompat.START);
+
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                FavouriteProduct favouriteProduct = new FavouriteProduct();
+                ft.replace(R.id.frame, favouriteProduct);
                 ft.commit();
             }
         });
